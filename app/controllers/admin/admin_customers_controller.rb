@@ -1,2 +1,3 @@
 class AdminCustomersController < ApplicationController
+	
 end
