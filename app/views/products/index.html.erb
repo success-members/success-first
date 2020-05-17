@@ -2,12 +2,19 @@
 	<div class="row">
 		<div class="col-xs-3">
 			<h1>ジャンル検索</h1>
+
+			<% @genres.each do |genre| %>
+				<p><%= genre.name %></p>
 		</div>
 		<div class="col-xs-9">
+			<!-- TODO ジャンル検索に対応する予定　ifで分岐 -->
 			<h1>商品一覧</h1>
+			<p>（全x件）</p>
 
-			<%= @product.each do |product| %>
-				<%= product.name %>
+			<% @products.each do |product| %>
+				<p><%= product.name %></p>
+				<p><%= product.price %></p>
+				<p><%= product.image %></p>
 			<% end %>
 
 		</div>
