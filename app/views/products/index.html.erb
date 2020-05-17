@@ -1,1 +1,15 @@
-<h1>index</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+			<h1>ジャンル検索</h1>
+		</div>
+		<div class="col-xs-9">
+			<h1>商品一覧</h1>
+
+			<%= @product.each do |product| %>
+				<%= product.name %>
+			<% end %>
+
+		</div>
+	</div>
+</div>
