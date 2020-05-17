@@ -1,0 +1,2 @@
+class AdminGenresController < ApplicationController
+end
