@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-
+before_action :configure_permitted_parameters, if: :devise_controller?
 
 protected
   def after_sign_in_path_for(resource) #サインインした時の移動先の指定（本来は商品一覧画面に行く予定だが、現状はトップページに指定。修正が必要）
