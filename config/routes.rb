@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   		delete 'destroy_all'
   	end
   end
+  resources :orders, only: [:new, :index, :show, :create]
   root 'homes#top' #最初の画面をルートにて設定しています。
 end
