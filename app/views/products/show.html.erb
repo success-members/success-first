@@ -1,1 +1,26 @@
-<h1>show</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+			<h1>ジャンル検索</h1>
+
+			<% @genres.each do |genre| %>
+				<% if genre.is_valid %>
+					<p><%= link_to genre.name, :controller => 'products', :action => 'index', id: genre.id %></p>
+				<% end %>
+			<% end %>
+		</div>
+
+		<div class="col-xs-9">
+			<p><%= attachment_image_tag @product, :image, fallback: "no_image.jpg", size: "100x100" %></p>
+			<p><%= @product.name %></p>
+			<p><%= @product.explanation %></p>
+			<p>¥ <%= @product.price %> (税込)</p>
+
+			<%= form_for(@cart_item) do |f| %>
+				<%= f.select :number, @pull_num %>
+				<%= f.submit "カートに入れる" %>
+			<% end %>
+
+		</div>
+	</div>
+</div>
