@@ -1,2 +1,2 @@
-class CustomersController < ApplicationController
+class Admins::CustomersController < ApplicationController
 end
