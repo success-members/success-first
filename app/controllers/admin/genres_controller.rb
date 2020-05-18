@@ -8,8 +8,13 @@ class Admin::GenresController < ApplicationController
 	# ジャンルの新規登録をする
 	def create
 		@genre = Genre.new(genre_params)
-		@genre.save
-		redirect_to new_admin_genre_path
+		if @genre.save
+			redirect_to new_admin_genre_path
+		else
+			@genres = Genre.all
+			redirect_to new_admin_genre_path
+		end
+
 	end
 
 	# ジャンル編集画面
@@ -20,8 +25,12 @@ class Admin::GenresController < ApplicationController
 	# ジャンルの更新をする
 	def update
 		@genre = Genre.find(params[:id])
-		@genre.update(genre_params)
-		redirect_to new_admin_genre_path
+		if @genre.update(genre_params)
+			redirect_to new_admin_genre_path
+		else
+			@genre = Genre.find(params[:id])
+			render :edit
+		end
 	end
 
 
