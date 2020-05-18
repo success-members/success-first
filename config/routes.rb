@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :admins
   devise_for :customers
 
-  namespace :admins do
+  namespace :admin do
   	resources :genres, only: [:new, :create, :edit, :update]
   end
 

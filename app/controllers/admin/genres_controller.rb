@@ -1,4 +1,4 @@
-class Admins::GenresController < ApplicationController
+class Admin::GenresController < ApplicationController
 
 	# ジャンル登録・一覧画面
 	def new
@@ -10,7 +10,7 @@ class Admins::GenresController < ApplicationController
 	def create
 		@genre = Genre.new(genre_params)
 		@genre.save
-		redirect_to new_admins_genre_path
+		redirect_to new_admin_genre_path
 	end
 
 	# ジャンル編集画面
@@ -22,7 +22,7 @@ class Admins::GenresController < ApplicationController
 	def update
 		@genre = Genre.find(1)
 		@genre.update(genre_params)
-		redirect_to new_admins_genre_path
+		redirect_to new_admin_genre_path
 	end
 
 
