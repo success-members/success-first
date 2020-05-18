@@ -2,7 +2,7 @@
 
 <h3>登録者情報</h3>
 <%= link_to ' 編集する', edit_customer_path(current_customer.id) %><!--リンク反映済み-->
-<%= link_to ' パスワードを変更する', customer_path(current_customer.id) %>
+<%= link_to "パスワードを変更する", new_password_path(current_customer) %>
 
 <table>
 	<tr>

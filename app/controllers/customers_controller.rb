@@ -13,14 +13,30 @@ class CustomersController < ApplicationController
 	end
 
 	def update	#登録者情報の更新
-	    @customer = Customer.find(params[:id])	
+	    @customer = Customer.find(params[:id])
+	    if @customer.update(customer_params)
+	       #flash[:notice] = "登録者の更新が完了しました"  #編集後の完了アラートいる？
+           redirect_to customer_path(current_customer.id)
+        else
+           flash[:notice] = "もう一度ご確認の上、ご入力お願いします。" #編集後の完了アラートいる？
+           render "edit"
+        end
 	end
 
-	def update_retire	#退会手続き（ステータスの更新）	
+	def withdrawal
+		@customer = Customer.find(params[:id])
+		
 	end
 
-	def withdrawal #退会画面		
+	def update_retire	#退会手続き（ステータスの更新）
+	    @customer = Customer.find(params[:id])
+        @customer.update(is_deleted: false)	#is_deletedをtrueに変更することでユーザーの倫理削除可能？
+        reset_session
+        flash[:notice] = "ありがとうございました。またのご利用お待ちしております。"
+        redirect_to root_path
 	end
+
+	
 
 
 	private #ストロングパラメータ
