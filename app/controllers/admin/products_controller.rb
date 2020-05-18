@@ -13,6 +13,7 @@ class Admin::ProductsController < ApplicationController
 
 	# 商品一覧画面
 	def index
+		@products=Product.all
 	end
 
 	# 商品詳細画面
@@ -28,6 +29,6 @@ class Admin::ProductsController < ApplicationController
 
 	private
 	def product_params
-		params.require(:product).permit(:name, :image, :price, :explanation, :is_sale, :genre_id)
+		params.require(:product).permit(:name, :price, :explanation, :is_sale) # :image :genre_id
 	end
 end

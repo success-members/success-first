@@ -1,0 +1,38 @@
+<div class="container">
+	<div class="row">
+		<h3 class="bg-warning col-xs-2 text-center">商品一覧</h3>
+	</div>
+
+	<div class="row">
+		<!-- 商品一覧 -->
+		<div class="groducts_all col-xs-10">
+			<%= link_to new_admin_product_path do %>
+				<span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+			<% end %>
+			<table class="table">
+				<thead>
+					<tr class="active">
+						<th>商品ID</th>
+						<th>商品名</th>
+						<th>税抜価格</th>
+						<th>ジャンル</th>
+						<th>ステータス</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<% @products.each do |product| %>
+					<tr>
+						<td><%= product.id %></td>
+						<td><%= product.name %></td>
+						<td><%= product.price %></td>
+						<td><%#= genre.is_valid %></td>
+						<td><%= product.is_sale %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+		<!-- 商品一覧 -->
+	</div>
+</div>
