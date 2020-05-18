@@ -4,8 +4,7 @@
 
 			<h8>ショッピングカート</h8>
 
-			<!-- リンク先をdestroy_allアクションに変更 -->
-			<p><%= link_to "カートを空にする", cart_items_path %></p>
+			<p><%= link_to "カートを空にする", destroy_all_cart_items_path, method: :delete %></p>
 
 			<table class="table">
 				<thead>
@@ -22,25 +21,31 @@
 					<% @total_amount += cart_item.product.price * cart_item.number %>
 					<tbody>
 						<tr>
-							<td><%= cart_item.product.name %></td>
+							<td>
+								<%= attachment_image_tag cart_item.product, :image, fallback: "no_image.jpg", size: "40x40" %>
+								<%= cart_item.product.name %>
+							</td>
 							<td><%= cart_item.product.price %></td>
-							<!-- リンク先をupdateアクションに変更 -->
-							<td><%= cart_item.number %><%= link_to "変更", cart_items_path %></td>
+							<td>
+								<%= form_for(cart_item) do |f| %>
+									<%= f.number_field :number %>
+									<%= f.submit "変更" %>
+								<% end %>
+							</td>
 							<td><%= cart_item.product.price * cart_item.number %></td>
-							<!-- リンク先をdestroyアクションに変更 -->
-							<td><%= link_to "削除する", cart_items_path %></td>
+							<td><%= link_to "削除する", cart_item_path(cart_item), method: :delete %></td>
 						</tr>
 					</tbody>
 				<% end %>
 			</table>
 
-			<!-- リンク先をトップページに変更 -->
+			<!-- TODO リンク先をトップページに変更 -->
 			<p><%= link_to "買い物を続ける", cart_items_path %></p>
 
 			<h10>合計金額</h10>
 			<h10><%= @total_amount %></h10>
 
-			<!-- リンク先を購入情報入力に変更 *link_toを変えるかも -->
+			<!-- TODO リンク先を購入情報入力に変更 *link_toを変えるかも -->
 			<p><%= link_to "情報入力に進む", cart_items_path %></p>
 
 		</div>
