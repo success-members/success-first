@@ -1,0 +1,40 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+			<h1>ジャンル検索</h1>
+
+			<% @genres.each do |genre| %>
+				<% if genre.is_valid %>
+					<p><%= link_to genre.name, :controller => 'products', :action => 'index', id: genre.id %></p>
+				<% end %>
+			<% end %>
+		</div>
+
+		<div class="col-xs-9">
+			<% if @search_genre.present? %>
+				<h1><%= @search_genre.name %>一覧</h1>
+				<p>(全x件)</p>
+
+				<% @products.each do |product| %>
+					<% if product.genre_id == @search_genre.id %>
+						<p><a href="/products/<%= product.id %>"><%= attachment_image_tag product, :image, fallback: "no_image.jpg", size: "100x100" %></a></p>
+						<p><%= link_to product.name, product_path(product) %></p>
+						<p>¥<%= product.price %></p>
+					<% end %>
+				<% end %>
+
+			<% else %>
+				<h1>商品一覧</h1>
+				<p>(全x件)</p>
+
+				<% @products.each do |product| %>
+					<p><a href="/products/<%= product.id %>"><%= attachment_image_tag product, :image, fallback: "no_image.jpg", size: "100x100" %></a></p>
+					<p><%= link_to product.name, product_path(product) %></p>
+					<p>¥<%= product.price %></p>
+				<% end %>
+
+			<% end %>
+
+		</div>
+	</div>
+</div>
