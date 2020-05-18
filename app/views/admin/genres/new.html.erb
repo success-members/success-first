@@ -4,7 +4,7 @@
 			<div class="add_genres">
 				<h3 class="text-center bg-warning">ジャンル一覧・追加</h3>
 
-				<%= form_with url: admin_genres_path, local: true do |f| %>
+				<%= form_with model: @genre, url: admin_genres_path, local: true do |f| %>
 					<label class="">ジャンル</label>
 
 					<%= f.text_field :name %>
@@ -45,7 +45,7 @@
 							<td><%= genre.name %></td>
 							<td><%= genre.is_valid %></td>
 
-							<td><%= link_to '編集する', edit_admin_genre_path(@genres), class: 'btn btn-primary' %></td>
+							<td><%= link_to '編集する', edit_admin_genre_path(genre.id), class: 'btn btn-primary' %></td>
 						</tr>
 						<% end %>
 					</tbody>
