@@ -24,7 +24,10 @@
 					<% @products.each do |product| %>
 					<tr>
 						<td><%= product.id %></td>
-						<td><%= product.name %></td>
+						<td>
+							<%= link_to admin_product_path(product) do %>
+							<%= product.name %></td>
+							<% end %>
 						<td><%= product.price %></td>
 						<td><%#= genre.is_valid %></td>
 						<td><%= product.is_sale %></td>

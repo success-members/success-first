@@ -7,8 +7,8 @@
 		<%= form_with model: @product, url: admin_products_path, local: true do |f| %>
 			<div class="col-xs-4">
 				<div class="add_products">
-					<%#= attachment_image_tag(@product, :image, :fill, 100, 100, fallback: "no_image.jpg", size: '50x50') %>
-					<%= f.attachment_field :image, class: 'user_image' %>
+					<%= attachment_image_tag(@product.id, :image, :fill, 250, 170, fallback: 'no_image.jpg', size: '250x170') %>
+					<%= f.attachment_field :image %>
 				</div>
 			</div>
 
@@ -27,7 +27,7 @@
 				<%= f.text_field :price %>円<br>
 
 				<label>販売<br>ステータス</label>
-				<%= f.select :is_sale, [['販売中','1'], ['売切れ', '0']], include_blank: '-- 選択して下さい --'%>
+				<%= f.select :is_sale, [['販売中',true], ['売切れ', false]], include_blank: '-- 選択して下さい --'%>
 			</div>
 
 			<div class="col-xs-3">
