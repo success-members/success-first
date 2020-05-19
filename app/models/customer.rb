@@ -13,7 +13,12 @@ class Customer < ApplicationRecord
 
 
   has_many :cart_items, dependent: :destroy
+
   has_many :shipping_addresses, dependent: :destroy
+
+
+  has_many :products, through: :cart_items
+  has_many :shipping_address, dependent: :destroy
 
 
 end
