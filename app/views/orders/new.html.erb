@@ -3,31 +3,39 @@
 		<div class="col-xs-12">
 			<h2>注文情報入力</h2>
 
-			<h2>支払方法</h2>
-			<h5>クレジットカード</h5>
-			<h5>銀行振込</h5>
+			<%= form_for(@order, url: confirm_orders_path, html: {method: 'GET'}) do |f| %>
+				<h2>支払方法</h2>
+				<p><%= f.radio_button :payment_method, 0, checked:true %>クレジットカード</p>
+				<p><%= f.radio_button :payment_method, 1 %>銀行振込</p>
 
-			<h2>お届け先</h2>
-			<h5>ご自身の住所</h5>
-				<p>
-					<%= current_customer.postcode %>
-					<%= current_customer.address %>
-				</p>
-				<p>
-					<%= current_customer.last_name %>
-					<%= current_customer.first_name %>
-				</p>
+				<h2>お届け先</h2>
+				<h5><%= f.radio_button :addressee, 0, checked:true %>ご自身の住所</h5>
+					<p>
+						<%= current_customer.postcode %>
+						<%= current_customer.address %>
+					</p>
+					<p>
+						<%= current_customer.last_name %>
+						<%= current_customer.first_name %>
+					</p>
 
-			<h5>登録済住所から選択</h5>
-			<% @shipping_address.each do |shipping| %>
-				<p>
-					<%= shipping.postcode %>
-					<%= shipping.address %>
-					<%= shipping.name %>
-				</p>
+				<h5><%= f.radio_button :addressee, 1 %>登録済住所から選択</h5>
+				<% @shipping_address.each do |shipping| %>
+					<p>
+						<%= shipping.postcode %>
+						<%= shipping.address %>
+						<%= shipping.name %>
+					</p>
+				<% end %>
+
+				<h5><%= f.radio_button :addressee, 2 %>新しいお届け先</h5>
+					<p>郵便番号(ハイフンなし)<%= f.text_field :postcode %></p>
+					<p>住所<%= f.text_field :address %></p>
+					<p>宛名<%= f.text_field :name %></p>
+
+				<%= f.submit '確認画面へ進む' %>
+
 			<% end %>
-
-			<h5>新しいお届け先</h5>
 
 		</div>
 	</div>
