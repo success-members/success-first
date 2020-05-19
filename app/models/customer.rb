@@ -6,13 +6,14 @@ class Customer < ApplicationRecord
 
 
   def active_for_authentication?
-    super && (self.is_deleted == true)
+    super && (self.is_deleted == true)   #is_deleted==trueなら（退会したユーザー）を再度ログインできないようにする
  end
 
 
 
 
   has_many :cart_items, dependent: :destroy
-  has_many :shipping_address, dependent: :destroy
+  has_many :shipping_addresses, dependent: :destroy
+
 
 end

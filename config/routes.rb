@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   get 'withdrawal/:id' => 'customers#withdrawal',as:"withdrawal" 
   put "retire/:id" => "customers#update_retire", as: 'retire'
 
+  resources :shipping_addresses
+
 end
