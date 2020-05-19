@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
 
 	def confirm
 		@order = params.require(:order)
+		@oo = params
 		# @order = ShippingAddress.new(order_params)
 	end
 

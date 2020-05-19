@@ -9,7 +9,7 @@
 				<p><%= f.radio_button :payment_method, 1 %>銀行振込</p>
 
 				<h2>お届け先</h2>
-				<h5><%= f.radio_button :addressee, 0, checked:true %>ご自身の住所</h5>
+				<h5><%= radio_button_tag :addressee, 0, checked:true %>ご自身の住所</h5>
 					<p>
 						<%= current_customer.postcode %>
 						<%= current_customer.address %>
@@ -19,7 +19,7 @@
 						<%= current_customer.first_name %>
 					</p>
 
-				<h5><%= f.radio_button :addressee, 1 %>登録済住所から選択</h5>
+				<h5><%= radio_button_tag :addressee, 1 %>登録済住所から選択</h5>
 				<% @shipping_address.each do |shipping| %>
 					<p>
 						<%= shipping.postcode %>
@@ -28,7 +28,7 @@
 					</p>
 				<% end %>
 
-				<h5><%= f.radio_button :addressee, 2 %>新しいお届け先</h5>
+				<h5><%= radio_button_tag :addressee, 2 %>新しいお届け先</h5>
 					<p>郵便番号(ハイフンなし)<%= f.text_field :postcode %></p>
 					<p>住所<%= f.text_field :address %></p>
 					<p>宛名<%= f.text_field :name %></p>
