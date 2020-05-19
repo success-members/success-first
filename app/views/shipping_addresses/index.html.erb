@@ -4,7 +4,7 @@
 
    <div class="field">
     <%= f.label :郵便番号（ハイフンなし） %>
-    <%= f.text_field :postcode, autofocus: true, placeholder: 'postal_code', class: "postal_code", id: "address_zipcode"  %>
+    <%= f.text_field :postcode, autofocus: true, class: "postal_code", id: "address_zipcode"  %>
    </div>
 
    <div class="field">
@@ -33,12 +33,18 @@
   </thead>
 
   <tbody>
-	<% @shipping_address.each do |shipping_address| %>
+	<% @shipping_addresses.each do |shipping_address| %>
       <tr>
 		  <td><%= shipping_address.postcode %></td>
-		  <td class="a"><%= shipping_address.address %></td>
-		  <td class="b"><%= shipping_address.name %></td>  
+		  <td><%= shipping_address.address %></td>
+		  <td><%= shipping_address.name %></td>
+      <td>
+        <%= link_to ' 編集する', edit_shipping_address_path(shipping_address.id) %>
+        <%= link_to "削除する", shipping_address_path(shipping_address), method: :delete %>
+      </td>
+
       </tr>
     <% end %>
   </tbody>
 </table>
+

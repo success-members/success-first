@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   put "retire/:id" => "customers#update_retire", as: 'retire'
 
   resources :shipping_addresses
+ 
 
 end
