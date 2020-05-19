@@ -18,24 +18,27 @@
 				</thead>
 
 				<% @cart_items.each do |cart_item| %>
-					<% @total_amount += cart_item.product.price * cart_item.number %>
-					<tbody>
-						<tr>
-							<td>
-								<%= attachment_image_tag cart_item.product, :image, fallback: "no_image.jpg", size: "40x40" %>
-								<%= cart_item.product.name %>
-							</td>
-							<td><%= cart_item.product.price %></td>
-							<td>
-								<%= form_for(cart_item) do |f| %>
-									<%= f.number_field :number %>
-									<%= f.submit "変更" %>
-								<% end %>
-							</td>
-							<td><%= cart_item.product.price * cart_item.number %></td>
-							<td><%= link_to "削除する", cart_item_path(cart_item), method: :delete %></td>
-						</tr>
-					</tbody>
+				<!-- TODO 会員のログイン画面のブランチがマージされたら1をcurrent_userに変更 -->
+					<% if cart_item.customer_id == 1 %>
+						<% @total_amount += cart_item.product.price * cart_item.number %>
+						<tbody>
+							<tr>
+								<td>
+									<%= attachment_image_tag cart_item.product, :image, fallback: "no_image.jpg", size: "40x40" %>
+									<%= cart_item.product.name %>
+								</td>
+								<td><%= cart_item.product.price %></td>
+								<td>
+									<%= form_for(cart_item) do |f| %>
+										<%= f.number_field :number %>
+										<%= f.submit "変更" %>
+									<% end %>
+								</td>
+								<td><%= cart_item.product.price * cart_item.number %></td>
+								<td><%= link_to "削除する", cart_item_path(cart_item), method: :delete %></td>
+							</tr>
+						</tbody>
+					<% end %>
 				<% end %>
 			</table>
 
