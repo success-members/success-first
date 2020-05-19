@@ -20,13 +20,10 @@
 					</p>
 
 				<h5><%= radio_button_tag :addressee, 1 %>登録済住所から選択</h5>
-				<% @shipping_address.each do |shipping| %>
-					<p>
-						<%= shipping.postcode %>
-						<%= shipping.address %>
-						<%= shipping.name %>
-					</p>
-				<% end %>
+				<p>
+					<!-- TODO メソッドのbillingを適当な何かに変更 -->
+					<%= f.collection_select(:billing, @shipping_address, :name, :registered_address) %>
+				</p>
 
 				<h5><%= radio_button_tag :addressee, 2 %>新しいお届け先</h5>
 					<p>郵便番号(ハイフンなし)<%= f.text_field :postcode %></p>
