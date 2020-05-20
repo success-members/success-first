@@ -41,7 +41,7 @@
 
 					<tbody>
 						<% @genres.each do |genre| %>
-							<% if genre.is_valid == true %>
+							<%# if genre.is_valid == true %>
 								<tr>
 									<td><%= genre.name %></td>
 									<td>
@@ -54,7 +54,7 @@
 
 									<td><%= link_to '編集する', edit_admin_genre_path(genre.id), class: 'btn btn-primary' %></td>
 								</tr>
-							<% end %>
+							<%# end %>
 						<% end %>
 					</tbody>
 				</table>
