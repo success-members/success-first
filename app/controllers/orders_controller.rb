@@ -34,6 +34,15 @@ class OrdersController < ApplicationController
 		order = Order.new(order_params)
 		order.customer_id = current_customer.id
 		order.save
+		cart_items = CartItem.where(customer_id: current_customer)
+		cart_items.each do |cart_item|
+			order_product = OrderProduct.new
+			order_product.order_id = order.id
+			order_product.product_id = cart_item.product_id
+			order_product.unit_price = cart_item.product.price
+			order_product.number = cart_item.number
+			order_product.save
+		end
 		redirect_to thanks_orders_path
 	end
 
