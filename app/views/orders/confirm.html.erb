@@ -1,3 +1,88 @@
-<%= @order[:payment_method] %>
-<h1>aaa</h1>
-<%= @oo[:addressee] %>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h2>注文情報確認</h2>
+		</div>
+
+		<div class="col-xs-9">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>商品名</th>
+						<th>単価(税込)</th>
+						<th>数量</th>
+						<th>小計</th>
+					</tr>
+				</thead>
+
+				<% @cart_items.each do |cart_item| %>
+					<% if cart_item.customer_id == current_customer.id %>
+						<% @total_amount += cart_item.product.price * cart_item.number %>
+						<tbody>
+							<tr>
+								<td>
+									<%= attachment_image_tag cart_item.product, :image, fallback: "no_image.jpg", size: "40x40" %>
+									<%= cart_item.product.name %>
+								</td>
+								<td><%= cart_item.product.price %></td>
+								<td><%= cart_item.number %></td>
+								<td><%= cart_item.product.price * cart_item.number %></td>
+							</tr>
+						</tbody>
+					<% end %>
+				<% end %>
+			</table>
+		</div>
+
+		<div class="col-xs-3">
+			<table>
+				<tr>
+					<th>送料</th>
+					<td><%= @POSTAGE %></td>
+				</tr>
+				<tr>
+					<th>商品合計</th>
+					<td><%= @total_amount %></td>
+				</tr>
+				<tr>
+					<th>請求金額</th>
+					<td><%= @POSTAGE + @total_amount %></td>
+				</tr>
+			</table>
+
+			<div class="col-xs-12">
+				<h2>支払方法</h2>
+				<h5>
+					<% if @order[:payment_method].to_i == 0 %>
+						<p>クレジットカード</p>
+					<% elsif @order[:payment_method].to_i == 1 %>
+						<p>銀行振込</p>
+					<% end %>
+				</h5>
+
+				<h2>お届け先</h2>
+				<h5>
+					<% if @receive_param[:addressee].to_i == 0 %>
+						<p>
+							<%= current_customer.postcode %>
+							<%= current_customer.address %>
+						</p>
+						<p>
+							<%= current_customer.last_name %>
+							<%= current_customer.first_name %>
+						</p>
+					<% elsif @receive_param[:addressee].to_i == 1 %>
+						<p><%= @order[:billing] %></p>
+					<% elsif @receive_param[:addressee].to_i == 2 %>
+						<p>
+							<%= @order[:postcode] %>
+							<%= @order[:address] %>
+						</p>
+						<p><%= @order[:name] %></p>
+					<% end %>
+				</h5>
+			</div>
+
+		</div>
+	</div>
+</div>
