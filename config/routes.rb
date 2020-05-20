@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :customers
 
   namespace :admin do
+  	resources :customers, only: [:index, :show, :edit, :update]
   	resources :genres, only: [:new, :create, :edit, :update]
   	resources :products, only: [:new, :create, :index, :show, :edit, :update]
   end
