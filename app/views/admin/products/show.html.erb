@@ -13,27 +13,27 @@
 		<table class="col-xs-5 a_p_btn_position a_p_table">
 			<tr>
 				<td class="col-xs-2">商品名</td>
-				<td class="col-xs-3"><%= @product.name %></td>
+				<td class="col-xs-3 a_p_show_font"><%= @product.name %></td>
 			</tr>
 
 			<tr>
 				<td class="col-xs-2">商品説明</td>
-				<td class="col-xs-3"><%= @product.explanation %></td>
+				<td class="col-xs-3 a_p_show_font"><%= @product.explanation %></td>
 			</tr>
 
 			<tr>
 				<td class="col-xs-2">ジャンル</td>
-				<td class="col-xs-3"><%= @product.genre.name %></td>
+				<td class="col-xs-3 a_p_show_font"><%= @product.genre.name %></td>
 			</tr>
 
 			<tr>
 				<td class="col-xs-2">税込価格(税抜価格)</td>
-				<td class="col-xs-3"><%= ((@product.price * 1.1).round(2)).ceil %>(<%= @product.price %>)円</td>
+				<td class="col-xs-3 a_p_show_font"><%= ((@product.price * 1.1).round(2)).ceil %>(<%= @product.price %>)円</td>
 			</tr>
 
 			<tr>
 				<td class="col-xs-2">販売<br>ステータス</td>
-				<td class="col-xs-3">
+				<td class="col-xs-3 a_p_show_font">
 					<% if @product.is_sale == true %>
 						<%= @product.is_sale = '販売中' %>
 					<% else %>
