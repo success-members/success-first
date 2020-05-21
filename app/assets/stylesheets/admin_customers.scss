@@ -1,3 +1,32 @@
 // Place all the styles related to the admin_customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/*indexの見出し設定*/
+.a_c_i_headline {
+	font-size: 20px;
+	margin-top: 40px;
+	margin-bottom: 30px;
+	padding: 0 5px;
+	background-color: #eee;
+}
+
+/*見出し設定*/
+.a_c_headline {
+	font-size: 20px;
+	margin-top: 40px;
+	margin-bottom: 60px;
+	padding: 0 5px;
+	background-color: #eee;
+}
+
+/*表とボタンの間隔調節*/
+.a_c_table {
+	margin-bottom: 30px;
+}
+
+/*表の設定*/
+.a_c_table td {
+	padding-bottom: 20px;
+}
