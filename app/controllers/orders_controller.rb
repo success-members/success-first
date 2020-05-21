@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
 		@order = Order.new
 		@order.payment_method = params[:order][:payment_method].to_i
 		@order_products = OrderProduct.new
-		@cart_items = CartItem.where(customer_id: current_customer)
+		@cart_items = CartItem.where(customer_id: current_customer.id)
 		receive_addressee = params
 		receive_order = params.require(:order)
 		if receive_addressee[:addressee].to_i == 0
@@ -34,7 +34,7 @@ class OrdersController < ApplicationController
 		order = Order.new(order_params)
 		order.customer_id = current_customer.id
 		order.save
-		cart_items = CartItem.where(customer_id: current_customer)
+		cart_items = CartItem.where(customer_id: current_customer.id)
 		cart_items.each do |cart_item|
 			order_product = OrderProduct.new
 			order_product.order_id = order.id
@@ -43,6 +43,7 @@ class OrdersController < ApplicationController
 			order_product.number = cart_item.number
 			order_product.save
 		end
+		cart_items.destroy_all
 		redirect_to thanks_orders_path
 	end
 
@@ -50,6 +51,7 @@ class OrdersController < ApplicationController
 	end
 
 	def index
+		@orders = Order.where(customer_id: current_customer.id)
 	end
 
 	def show
