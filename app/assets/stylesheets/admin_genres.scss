@@ -1,3 +1,19 @@
 // Place all the styles related to the admin_genres controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+/*ジャンル追加フォームと表の間を調整*/
+.a_add_genres {
+	margin-bottom: 30px;
+}
+
+/*見出しの設定*/
+.a_g_headline {
+	font-size: 20px;
+	margin-top: 40px;
+	margin-bottom: 30px;
+	padding: 0 5px;
+	background-color: #eee;
+}
