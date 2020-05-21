@@ -9,6 +9,11 @@
 				<p><%= f.radio_button :payment_method, 1 %>銀行振込</p>
 
 				<h2>お届け先</h2>
+
+				<% if @address_error_msg %>
+					<p><%= @address_error_msg %></p>
+				<% end %>
+
 				<h5><%= radio_button_tag :addressee, 0, checked:true %>ご自身の住所</h5>
 					<p>
 						<%= current_customer.postcode %>

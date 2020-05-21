@@ -20,9 +20,15 @@ class OrdersController < ApplicationController
 			@address = current_customer.address
 			@name = current_customer.last_name + current_customer.first_name
 		elsif receive_addressee[:addressee].to_i == 1
-			@postcode = receive_order[:billing].split[0]
-			@address = receive_order[:billing].split[1]
-			@name = receive_order[:billing].split[2]
+			if receive_order[:billing].blank?
+				@shipping_address = ShippingAddress.where(customer_id: current_customer.id)
+				@address_error_msg = "住所を入力してください。"
+				render :new
+			else
+				@postcode = receive_order[:billing].split[0]
+				@address = receive_order[:billing].split[1]
+				@name = receive_order[:billing].split[2]
+			end
 		elsif receive_addressee[:addressee].to_i == 2
 			@postcode = receive_order[:postcode]
 			@address = receive_order[:address]
@@ -33,18 +39,24 @@ class OrdersController < ApplicationController
 	def create
 		order = Order.new(order_params)
 		order.customer_id = current_customer.id
-		order.save
-		cart_items = CartItem.where(customer_id: current_customer.id)
-		cart_items.each do |cart_item|
-			order_product = OrderProduct.new
-			order_product.order_id = order.id
-			order_product.product_id = cart_item.product_id
-			order_product.unit_price = cart_item.product.price
-			order_product.number = cart_item.number
-			order_product.save
+		if order.save
+			cart_items = CartItem.where(customer_id: current_customer.id)
+			cart_items.each do |cart_item|
+				order_product = OrderProduct.new
+				order_product.order_id = order.id
+				order_product.product_id = cart_item.product_id
+				order_product.unit_price = cart_item.product.price
+				order_product.number = cart_item.number
+				order_product.save
+			end
+			cart_items.destroy_all
+			redirect_to thanks_orders_path
+		else
+			@shipping_address = ShippingAddress.where(customer_id: current_customer.id)
+			@order = Order.new
+			@address_error_msg = "住所を入力してください。"
+			render :new
 		end
-		cart_items.destroy_all
-		redirect_to thanks_orders_path
 	end
 
 	def thanks
