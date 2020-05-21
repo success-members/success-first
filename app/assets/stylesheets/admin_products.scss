@@ -9,9 +9,10 @@
 }
 
 /*indexの見出しの設定*/
-.a_p_i_headline {
+.a_p_i_headline h3 {
 	font-size: 20px;
 	margin-top: 40px;
+	margin-left: 100px;
 	padding: 0 5px;
 	background-color: #eee;
 }
@@ -21,6 +22,7 @@
 	font-size: 20px;
 	margin-top: 40px;
 	margin-bottom: 100px;
+	margin-left: 200px;
 	padding: 0 5px;
 	background-color: #eee;
 }
@@ -42,11 +44,16 @@
 	word-break: break-all;
 }
 
+/*表の配置設定*/
+.a_products_all {
+	margin-left: 100px;
+}
+
 /*ボタンの設定*/
 .btn-bottom {
 	position: absolute;
 	top: 30px;
-	right: 300px;
+	right: 30px;
 }
 
 /*画像投稿ボタンの設定*/
