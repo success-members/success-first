@@ -15,28 +15,31 @@
       <div class="container">
 
         <nav class="nav navbar-nav navbar-left">
-          <span>ロゴ（設定まだ）</span>
+          <span class="span_rogo">ロゴ（設定まだ）</span>
         </nav>
 
         <nav>
-          <% if customer_signed_in? %> <!--ログイン時の名前表示-->
-          　ようこそ、<%= current_customer.last_name %><%= current_customer.first_name %>さん！
-          <% else %>
-          <% end %>
+          <ul class="nav navbar-nav navbar-">
+            <li><% if customer_signed_in? %> <!--ログイン時の名前表示-->
+              <span class="span_rogo">ようこそ、<%= current_customer.last_name %><%= current_customer.first_name %>さん！</span>
+            <% else %>
+            <% end %></li>
+          </ul>
         </nav>
 
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <!--if文でサインインとアウト時の表示を変更-->
-            <% if customer_signed_in? %>
+              <% if customer_signed_in? %> <!--ログイン時の名前表示-->
+
             <li><%= link_to ' マイページ', customer_path(current_customer.id) %></li><!--リンク反映済み-->
             <li><%= link_to ' 商品一覧', products_path %></li><!--リンク反映済み-->
-            <li><%= link_to ' カート', cart_items_path, class: 'glyphicon glyphicon-book books' %></li><!--リンク反映済み-->
+            <li><%= link_to ' カート', cart_items_path %></li><!--リンク反映済み-->
             <li><%= link_to ' ログアウト', destroy_customer_session_path, method: :delete %></li><!--リンク反映済み-->
             <% else %>
-            <li><%= link_to ' 商品一覧',new_customer_registration_path , class: 'glyphicon glyphicon-link about' %></li>
-            <li><%= link_to ' 新規登録', new_customer_registration_path, class: 'glyphicon glyphicon-edit sign_up' %></li><!--リンク反映済み-->
-            <li><%= link_to ' ログイン', new_customer_session_path, class: 'glyphicon glyphicon-log-in sign_in' %></li><!--リンク反映済み-->
+            <li><%= link_to ' 商品一覧',new_customer_registration_path %></li>
+            <li><%= link_to ' 新規登録', new_customer_registration_path %></li><!--リンク反映済み-->
+            <li><%= link_to ' ログイン', new_customer_session_path %></li><!--リンク反映済み-->
             <% end %>
           </ul>
         </nav>
@@ -48,6 +51,7 @@
       <p id="notice"><%= notice %></p> <!--デバイスでnotice設定されているので呼び出してるだけ-->
 
     </div>
+
     <%= yield %>
   </body>
 </html>

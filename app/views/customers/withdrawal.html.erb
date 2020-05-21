@@ -1,8 +1,18 @@
-<h3>本当に退会しますか？</h3>
+<body class="c_w">
+	<div class="c_w_c">
+		<p><strong>本当に退会しますか？</strong></p>
 
-<p>退会すると、会員登録情報や</p>
-<p>これまでの購入履歴が閲覧できなくなります。</p>
-<p>退会する場合は、「退会する」をクリックしてください。</p>
+	<br><!--改行による隙間明け-->
 
-<p><%= link_to '退会しない', customer_path(current_customer.id) %></p> <!--リンク反映済み。マイページに戻る-->
-<p> <%= link_to "退会する", retire_path(current_customer.id), method: :put, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %></p><!--リンク反映済み。トップページに戻る-->
+	<p>退会すると、会員登録情報や<br>
+	   これまでの購入履歴が閲覧できなくなります。<br>
+	   退会する場合は、「退会する」をクリックしてください。</p>
+
+	<br><!--改行による隙間明け-->
+
+	<p><%= link_to '退会しない', customer_path(current_customer.id),class: "btn btn-primary" %><!--リンク反映済み。マイページに戻る-->
+	   &nbsp;&nbsp;<!--&nbsp;は空白を意味してます（1つで半角スペース1回分）-->
+	   <%= link_to "退会する", retire_path(current_customer.id), method: :put, "data-confirm" => "本当に退会しますか？",class: "btn btn-danger" %>
+	</p><!--リンク反映済み。トップページに戻る-->
+    </div>
+</body>

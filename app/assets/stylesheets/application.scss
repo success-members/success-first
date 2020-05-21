@@ -1,0 +1,92 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+
+ body{
+ padding-top: 70px;
+ }  /*ヘッダーと各ページの位置が被るので被らないように高さ調節*/
+
+ .span_rogo{
+ color:white
+ }  /*ロゴが見えなかったので、とりあえず白色で設定*/
+
+ .h_gs{
+ background-color:#EEEEEE;
+ margin-left:80px;
+ font-size:150%;
+ }  /*サインインアップ画面の各項目の背景色設定（グレー）*/
+
+ .h_gl{
+ background-color:#EEEEEE;
+ font-size:120%;
+ }  /*ログイン画面の各項目の背景色設定（グレー）*/
+
+.h_sign{
+margin-left:100px;
+ }  /*サインインアップ画面のbody全体*/
+
+.h_sign_fn{
+margin-left:14px;
+border-radius:5px;
+margin-top:5px;	
+}/*サインアップ画面のフォーム名前入力部分*/
+
+.h_sign_fnk{
+border-radius:5px;
+margin-top:5px;	
+}/*サインアップ画面のフォームのフリガナ入力部分*/
+
+.h_sign_f{
+border-radius:5px;
+margin-left:56px;
+margin-top:5px;
+ } /*サインアップ画面の名前フリガナ以外のフォーム入力部分*/
+
+.h_sign_b{
+margin-left:550px;
+}/*サインアップ画面の新規登録ボタン*/
+
+#sb{
+margin-top:15px;
+width:250px;
+}/*サインアップ画面の新規登録ボタン単体*/
+
+.h_sigin_log{
+margin-left:100px;	
+}
+
+ .h_log{
+margin-top:100px;
+margin-left:300px;
+ }  /*ログイン画面のbody全体*/
+
+ .h_log_f{
+border-radius:5px;
+ } /*ログイン画面のフォーム入力部分*/
+
+ .h_log_b{
+ margin-left:480px;
+ } /*ログイン画面のログインボタン*/
+
+.h_log_p{
+margin-left:730px;
+}/*ログイン画面のパスワードを忘れた方はこちら*/
+
+.h_log_g{
+margin-left:80px;	
+}/*ログイン画面のこちらから新規登録を行ってください。*/
