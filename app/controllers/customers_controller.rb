@@ -36,6 +36,21 @@ class CustomersController < ApplicationController
         redirect_to root_path
 	end
 
+	def password
+		@customer = Customer.find(params[:id])
+	end
+
+	def change_password
+		@customer = Customer.find(params[:id])
+		if  @customer.update(customer_params)
+			flash[:notice] = "パスワード変更完了しました。再度ログインしてください"
+            redirect_to root_path
+        else
+        	flash[:notice] = "もう一度ご確認の上、ご入力お願いします。"
+            render "password"
+        end
+	end
+
 	
 
 

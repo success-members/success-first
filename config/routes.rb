@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   resources :customers
   get 'withdrawal/:id' => 'customers#withdrawal',as:"withdrawal" 
   put "retire/:id" => "customers#update_retire", as: 'retire'
+  
+  get 'password/:id' => 'customers#password',as:"password" 
+  put "change/:id" => "customers#change_password", as: 'change'
 
   resources :shipping_addresses
  
