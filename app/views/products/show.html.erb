@@ -16,10 +16,18 @@
 			<p><%= @product.explanation %></p>
 			<p>¥ <%= @product.price %> (税込)</p>
 
-			<%= form_for(@cart_item) do |f| %>
-				<%= f.hidden_field :product_id, value: @product.id %>
-				<%= f.select :number, @pull_num %>
-				<%= f.submit "カートに入れる" %>
+			<% if @get_cart_item.blank? %>
+				<%= form_for(@cart_item) do |f| %>
+					<%= f.hidden_field :product_id, value: @product.id %>
+					<%= f.select :number, @pull_num %>
+					<%= f.submit "カートに入れる" %>
+				<% end %>
+			<% else %>
+				<%= form_for(@cart_item, url: update_number_cart_items_path, html: {method: 'PATCH'}) do |f| %>
+					<%= f.hidden_field :id, value: @get_cart_item.id %>
+					<%= f.select :number, @pull_num %>
+					<%= f.submit "カートに入れる" %>
+				<% end %>
 			<% end %>
 
 		</div>

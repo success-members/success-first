@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
 		@product = Product.find(params[:id])
 		@genres = Genre.all
 		@cart_item = CartItem.new
-
-		@pull_num = {"1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "10": 10}
+		@get_cart_item = CartItem.find_by(customer_id: current_customer.id, product_id: params[:id])
+		@pull_num = [1, 2, 3, 4, 5, 10]
 	end
 end

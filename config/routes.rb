@@ -5,9 +5,15 @@ Rails.application.routes.draw do
   resources :cart_items, only: [:index, :create, :update, :destroy] do
   	collection do
   		delete 'destroy_all'
+      patch 'update_number'
   	end
   end
-  resources :orders, only: [:new, :index, :show, :create]
+  resources :orders, only: [:new, :index, :show, :create] do
+    collection do
+      post 'confirm'
+      get 'thanks'
+    end
+  end
   root 'homes#top' #最初の画面をルートにて設定しています。
 
 
