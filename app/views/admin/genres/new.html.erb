@@ -1,40 +1,42 @@
 <div class="container">
 	<div class="row">
-		<div class="col-xs-5">
-			<div class="add_genres">
-				<h3 class="text-center bg-warning">ジャンル一覧・追加</h3>
-
-				<%= form_with model: @genre, url: admin_genres_path, local: true do |f| %>
-					<label class="">ジャンル</label>
-
-					<%= f.text_field :name %>
-
-					<!-- ラジオボタン -->
-					<!-- <label><%#= f.radio_button :is_valid, true, checked: true %>有効</label> -->
-					<!-- <label><%#= f.radio_button :is_valid, false %>無効</label> -->
-
-					<%= f.radio_button :is_valid, true, checked: true %>
-					<%= f.label :is_valid, '有効', value: true %>
-
-					<%= f.radio_button :is_valid, false %>
-					<%= f.label :is_valid, '無効', value: false %>
-					<!-- ラジオボタン -->
-
-					<%= f.submit '追加', class: 'btn btn-info' %>
-				<% end %>
-			</div>
+		<div class="col-xs-3 a_g_headline">
+			<h3 class="text-center">ジャンル一覧・追加</h3>
 		</div>
 	</div>
 
 	<div class="row">
-		<div class="col-xs-5">
+		<div class="col-xs-5 a_add_genres">
+			<%= form_with model: @genre, url: admin_genres_path, local: true do |f| %>
+				<label class="a_g_blank_r">ジャンル</label>
+
+				<%= f.text_field :name, class: 'a_g_width' %>
+
+				<!-- ラジオボタン -->
+				<!-- <label><%#= f.radio_button :is_valid, true, checked: true %>有効</label> -->
+				<!-- <label><%#= f.radio_button :is_valid, false %>無効</label> -->
+
+				<%= f.radio_button :is_valid, true, checked: true %>
+				<%= f.label :is_valid, '有効', value: true, class: 'a_g_blank_r' %>
+
+				<%= f.radio_button :is_valid, false %>
+				<%= f.label :is_valid, '無効', value: false, class: 'a_g_blank_r' %>
+				<!-- ラジオボタン -->
+
+				<%= f.submit '追加', class: 'btn btn-info' %>
+			<% end %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-4">
 			<!-- ジャンル一覧 -->
 			<div class="genres_all">
 				<table class="table">
 					<thead>
 						<tr class="active">
-							<th>ジャンル</th>
-							<th>状態</th>
+							<th class="col-xs-4">ジャンル</th>
+							<th class="col-xs-4">状態</th>
 							<th></th>
 						</tr>
 					</thead>

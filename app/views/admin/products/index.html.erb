@@ -1,22 +1,24 @@
 <div class="container">
 	<div class="row">
-		<h3 class="bg-warning col-xs-2 text-center">商品一覧</h3>
+		<div class="col-xs-3 a_p_i_headline">
+			<h3 class="text-center">商品一覧</h3>
+		</div>
 	</div>
 
 	<div class="row">
 		<!-- 商品一覧 -->
-		<div class="groducts_all col-xs-10">
+		<div class="a_products_all col-xs-10">
 			<%= link_to new_admin_product_path do %>
-				<span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+				<span class="glyphicon glyphicon-plus-sign pull-right a_add_btn" aria-hidden="true"></span>
 			<% end %>
 			<table class="table">
 				<thead>
 					<tr class="active">
-						<th>商品ID</th>
-						<th>商品名</th>
-						<th>税抜価格</th>
-						<th>ジャンル</th>
-						<th>ステータス</th>
+						<th class="col-xs-1">商品ID</th>
+						<th class="col-xs-3">商品名</th>
+						<th class="col-xs-1">税抜価格</th>
+						<th class="col-xs-3">ジャンル</th>
+						<th class="col-xs-1">ステータス</th>
 					</tr>
 				</thead>
 

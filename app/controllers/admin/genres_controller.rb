@@ -1,4 +1,7 @@
 class Admin::GenresController < ApplicationController
+
+	#before_action :authenticate_admin!
+
 	# ジャンル登録・一覧画面
 	def new
 		@genres = Genre.all
