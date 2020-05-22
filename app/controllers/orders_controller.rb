@@ -4,6 +4,13 @@ class OrdersController < ApplicationController
 	def new
 		@shipping_address = ShippingAddress.where(customer_id: current_customer.id)
 		@order = Order.new
+		@cart_items = CartItem.where(customer_id: current_customer.id)
+		if @cart_items.blank?
+			@cart_item = CartItem.new
+			@total_amount = 0
+			@error_msg = "カートに商品が入っていません"
+			render template: "cart_items/index"
+		end
 	end
 
 	def confirm
@@ -20,11 +27,7 @@ class OrdersController < ApplicationController
 			@address = current_customer.address
 			@name = current_customer.last_name + current_customer.first_name
 		elsif receive_addressee[:addressee].to_i == 1
-			if receive_order[:billing].blank?
-				@shipping_address = ShippingAddress.where(customer_id: current_customer.id)
-				@address_error_msg = "住所を入力してください。"
-				render :new
-			else
+			if receive_order[:billing]
 				@postcode = receive_order[:billing].split[0]
 				@address = receive_order[:billing].split[1]
 				@name = receive_order[:billing].split[2]
@@ -37,13 +40,13 @@ class OrdersController < ApplicationController
 	end
 
 	def create
-		order = Order.new(order_params)
-		order.customer_id = current_customer.id
-		if order.save
+		@order = Order.new(order_params)
+		@order.customer_id = current_customer.id
+		if @order.save
 			cart_items = CartItem.where(customer_id: current_customer.id)
 			cart_items.each do |cart_item|
 				order_product = OrderProduct.new
-				order_product.order_id = order.id
+				order_product.order_id = @order.id
 				order_product.product_id = cart_item.product_id
 				order_product.unit_price = cart_item.product.price
 				order_product.number = cart_item.number
@@ -53,8 +56,6 @@ class OrdersController < ApplicationController
 			redirect_to thanks_orders_path
 		else
 			@shipping_address = ShippingAddress.where(customer_id: current_customer.id)
-			@order = Order.new
-			@address_error_msg = "住所を入力してください。"
 			render :new
 		end
 	end
