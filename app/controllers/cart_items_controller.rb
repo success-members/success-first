@@ -29,7 +29,7 @@ class CartItemsController < ApplicationController
 	def update_number
 		@cart_item = CartItem.find(params[:cart_item][:id])
 		@cart_item.number += params[:cart_item][:number].to_i
-  		if @cart_item.update(number: cart_item.number)
+  		if @cart_item.update(number: @cart_item.number)
   			redirect_to cart_items_path
   		else
   			set_parameter
