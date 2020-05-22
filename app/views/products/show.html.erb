@@ -1,14 +1,14 @@
 <div class="container">
 	<div class="row">
 		<!-- ジャンル検索 -->
-		<div class="col-xs-3" style= "padding-right: 50px;" >
-			<div class="panel panel-default" >
-				<div class="panel-heading genre_head" >
+		<div class="col-xs-3" style= "padding-right: 50px;">
+			<div class="panel panel-default">
+				<div class="panel-heading genre_head">
 					<p>ジャンル検索</p>
 				</div>
 
 				<!-- ジャンル一覧 -->
-				<div class="panel-body" >
+				<div class="panel-body">
 					<% @genres.each do |genre| %>
 						<% if genre.is_valid %>
 							<p><%= link_to genre.name, :controller => 'products', :action => 'index', id: genre.id %></p>
@@ -17,26 +17,45 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- 商品詳細 -->
 		<div class="col-xs-9">
-			<p><%= attachment_image_tag @product, :image, fallback: "no_image.jpg", size: "100x100" %></p>
-			<p><%= @product.name %></p>
-			<p><%= @product.explanation %></p>
-			<p>¥ <%= @product.price %> (税込)</p>
+			<div class="row">
+				<div class="product_datail center-block">
+					<div class="col-xs-5 product_img pull-left">
+						<%= attachment_image_tag @product, :image, fallback: "no_image.jpg", size: "350x250" %>
+					</div>
+					<div class="col-xs-7 product_text pull-left">
+						<div class="product_name">
+							<p><%= @product.name %></p>
+						</div>
+						<div class="product_exp">
+							<p><%= @product.explanation %></p>
+						</div>
+						<div class="product_price">
+							<p>¥ <%= @product.price %> (税込)</p>
+						</div>
+					</div>
+				</div>
+			</div>
 
-			<% if @get_cart_item.blank? %>
-				<%= form_for(@cart_item) do |f| %>
-					<%= f.hidden_field :product_id, value: @product.id %>
-					<%= f.select :number, @pull_num %>
-					<%= f.submit "カートに入れる" %>
-				<% end %>
-			<% else %>
-				<%= form_for(@cart_item, url: update_number_cart_items_path, html: {method: 'PATCH'}) do |f| %>
-					<%= f.hidden_field :id, value: @get_cart_item.id %>
-					<%= f.select :number, @pull_num %>
-					<%= f.submit "カートに入れる" %>
-				<% end %>
-			<% end %>
 
+			<div class="prdouct_btn">
+				<% if @get_cart_item.blank? %>
+					<%= form_for(@cart_item) do |f| %>
+						<%= f.hidden_field :product_id, value: @product.id %>
+						<%= f.select :number, @pull_num, {}, class: "product_select" %>
+						<%= f.submit "カートに入れる", class: "btn btn-primary btn-lg" %>
+					<% end %>
+				<% else %>
+					<%= form_for(@cart_item, url: update_number_cart_items_path, html: {method: 'PATCH'}) do |f| %>
+						<%= f.hidden_field :id, value: @get_cart_item.id %>
+						<%= f.select :number, @pull_num, {}, class: "product_select" %>
+						<%= f.submit "カートに入れる", class: "btn btn-primary btn-lg" %>
+					<% end %>
+				<% end %>
+			</div>
 		</div>
+
 	</div>
 </div>
