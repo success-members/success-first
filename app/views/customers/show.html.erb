@@ -2,7 +2,7 @@
   <span class="c_g">マイページ</span>
   <h4><strong>登録者情報</strong>
     <%= link_to ' 編集する', edit_customer_path(current_customer.id),class: "btn btn-primary" %><!--リンク反映済み-->
-    <%= link_to "パスワードを変更する", new_password_path(current_customer),class: "btn btn-primary" %>
+    <%= link_to "パスワードを変更する", password_path(current_customer),class: "btn btn-primary" %>
   </h4>
 <br> <!--改行による隙間-->
   <div class='row'>
