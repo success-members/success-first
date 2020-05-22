@@ -1,15 +1,22 @@
 <div class="container">
 	<div class="row">
-		<div class="col-xs-3">
-			<h1>ジャンル検索</h1>
+		<!-- ジャンル検索 -->
+		<div class="col-xs-3" style= "padding-right: 50px;" >
+			<div class="panel panel-default" >
+				<div class="panel-heading genre_head" >
+					<p>ジャンル検索</p>
+				</div>
 
-			<% @genres.each do |genre| %>
-				<% if genre.is_valid %>
-					<p><%= link_to genre.name, :controller => 'products', :action => 'index', id: genre.id %></p>
-				<% end %>
-			<% end %>
+				<!-- ジャンル一覧 -->
+				<div class="panel-body" >
+					<% @genres.each do |genre| %>
+						<% if genre.is_valid %>
+							<p><%= link_to genre.name, :controller => 'products', :action => 'index', id: genre.id %></p>
+						<% end %>
+					<% end %>
+				</div>
+			</div>
 		</div>
-
 		<div class="col-xs-9">
 			<p><%= attachment_image_tag @product, :image, fallback: "no_image.jpg", size: "100x100" %></p>
 			<p><%= @product.name %></p>
