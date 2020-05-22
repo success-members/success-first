@@ -22,7 +22,7 @@
 	font-size: 20px;
 	margin-top: 40px;
 	margin-bottom: 100px;
-	margin-left: 200px;
+	margin-left: 100px;
 	padding: 0 5px;
 	background-color: #eee;
 }
@@ -37,6 +37,12 @@
 	position: relative;
 }
 
+/*ボタンの設定*/
+.btn-bottom {
+	position: absolute;
+	right: 30px;
+}
+
 /*表の設定*/
 .a_p_table td {
 	padding-bottom: 20px;
@@ -47,13 +53,6 @@
 /*表の配置設定*/
 .a_products_all {
 	margin-left: 100px;
-}
-
-/*ボタンの設定*/
-.btn-bottom {
-	position: absolute;
-	top: 30px;
-	right: 30px;
 }
 
 /*画像投稿ボタンの設定*/
@@ -70,6 +69,17 @@
 /*フォームの枠の設定*/
 .a_p_form_with {
 	width: 200px;
+	margin-right: 5px;
+}
+
+.a_p_form_height {
+	height: 30px;
+}
+
+
+select {
+	width: 200px;
+	height: 30px;
 }
 
 

@@ -5,7 +5,7 @@
 
 	<%= form_with model: @product, url: admin_products_path, local: true do |f| %>
 		<div class="row">
-			<div class="col-xs-6 text-center">
+			<div class="col-xs-4 text-center">
 				<div class="add_products">
 					<%= attachment_image_tag(@product.id, :image, :fill, 250, 170, fallback: 'no_image.jpg', size: '250x170') %>
 					<%= f.attachment_field :image, class: 'a_p_img_btn center-block' %>
@@ -15,7 +15,7 @@
 			<table class="a_p_btn_position a_p_table">
 				<tr>
 					<td class="col-xs-3">商品名</td>
-					<td><%= f.text_field :name, class: 'a_p_form_with' %></td>
+					<td><%= f.text_field :name, class: 'a_p_form_with a_p_form_height' %></td>
 				</tr>
 
 				<tr>
@@ -32,7 +32,7 @@
 
 				<tr>
 					<td class="col-xs-3">税抜価格</td>
-					<td><%= f.text_field :price, class: 'a_p_form_with' %>円</td>
+					<td><%= f.text_field :price, class: 'a_p_form_with a_p_form_height' %>円</td>
 				</tr>
 
 				<tr>
