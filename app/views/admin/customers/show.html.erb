@@ -54,8 +54,7 @@
 			</tr>
 		</table>
 
-			<%= link_to '編集する', edit_admin_customer_path(@customer.id), class: 'btn btn-primary' %>
-			<!-- orderができてから -->
-			<%= link_to '注文履歴一覧を見る', edit_admin_customer_path(@customer.id), class: 'btn btn-primary' %>
+			<%= link_to '編集する', edit_admin_customer_path(@customer), class: 'btn btn-primary btn-lg' %>
+			<%= link_to '注文履歴一覧を見る', admin_orders_path(@customer), class: 'btn btn-primary btn-lg' %>
 	</div>
 </div>

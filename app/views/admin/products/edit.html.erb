@@ -3,7 +3,7 @@
 		<h3 class="text-center col-xs-2 a_p_headline">商品編集</h3>
 	</div>
 
-	<%= form_with model: @product, url: admin_product_path(@product.id), local: true do |f| %>
+	<%= form_with model: @product, url: admin_product_path(@product), local: true do |f| %>
 		<div class="row">
 			<div class="col-xs-4 text-center">
 				<div class="add_products">
