@@ -1,4 +1,6 @@
 class Admin::HomesController < ApplicationController
+	def home
+=======
 
 	# トップページ画面
 	def top
