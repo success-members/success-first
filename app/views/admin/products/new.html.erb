@@ -7,7 +7,7 @@
 		<div class="row">
 			<div class="col-xs-4 text-center">
 				<div class="add_products">
-					<%= attachment_image_tag(@product.id, :image, :fill, 250, 170, fallback: 'no_image.jpg', size: '250x170') %>
+					<%= attachment_image_tag(@product, :image, :fill, 250, 170, fallback: 'no_image.jpg', size: '250x170') %>
 					<%= f.attachment_field :image, class: 'a_p_img_btn center-block' %>
 				</div>
 			</div>
