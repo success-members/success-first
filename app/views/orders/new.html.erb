@@ -1,0 +1,56 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+
+			<div class="error_msg">
+				<% if @order.errors.any? %>
+					<h4><%= @order.errors.count %> error prohibited this obj from being saved: </h4>
+					<ul>
+						<% @order.errors.full_messages.each do |message| %>
+								<li><%= message %></li>
+						<% end %>
+					</ul>
+				<% end %>
+			</div>
+
+			<h2>注文情報入力</h2>
+
+			<%= form_for(@order, url: confirm_orders_path) do |f| %>
+				<h2>支払方法</h2>
+				<p><%= f.radio_button :payment_method, 0, checked:true %>クレジットカード</p>
+				<p><%= f.radio_button :payment_method, 1 %>銀行振込</p>
+
+				<h2>お届け先</h2>
+
+				<% if @address_error_msg %>
+					<p><%= @address_error_msg %></p>
+				<% end %>
+
+				<h5><%= radio_button_tag :addressee, 0, checked:true %>ご自身の住所</h5>
+					<p>
+						<%= current_customer.postcode %>
+						<%= current_customer.address %>
+					</p>
+					<p>
+						<%= current_customer.last_name %>
+						<%= current_customer.first_name %>
+					</p>
+
+				<h5><%= radio_button_tag :addressee, 1 %>登録済住所から選択</h5>
+				<p>
+					<!-- TODO メソッドのbillingを適当な何かに変更 -->
+					<%= f.collection_select(:billing, @shipping_address, :registered_address, :registered_address) %>
+				</p>
+
+				<h5><%= radio_button_tag :addressee, 2 %>新しいお届け先</h5>
+					<p>郵便番号(ハイフンなし)<%= f.text_field :postcode %></p>
+					<p>住所<%= f.text_field :address %></p>
+					<p>宛名<%= f.text_field :name %></p>
+
+				<%= f.submit '確認画面へ進む' %>
+
+			<% end %>
+
+		</div>
+	</div>
+</div>

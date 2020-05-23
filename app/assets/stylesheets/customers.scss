@@ -1,3 +1,76 @@
 // Place all the styles related to the customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.c_g{
+ font-size: 200%;
+ background-color:#EEEEEE;
+ margin-left:130px;
+ margin-bottom:400px;
+ }  /*会員のマイページと情報編集画面の背景色設定（グレー）*/
+
+ .c_s{
+ margin-left:100px;
+ }  /*会員のマイページのbody全体*/
+
+ .c_s_tg{
+ width:150px;
+ background-color:#EEEEEE;
+ }  /*会員のマイページ項目部分（グレーの箇所）*/
+
+.c_s_tw{
+
+ }  /*会員のマイページ項目部分（白色の箇所）*/
+
+ .c_e{
+ margin-left:100px;
+ }  /*会員のマイページ編集画面のbody全体*/
+
+ .c_w{
+ text-align:center;
+ }  /*会員の退会画面のbody全体*/
+
+ .c_w_c{
+margin-top:100px;
+font-size: 150%;
+ }  /*会員の退会画面のヘッダーを除いた範囲*/
+
+.c_field_n{
+ margin-left: 14px;
+ border-radius:5px;
+ }  /*登録者情報名前のフォーム部分*/
+
+.c_field_nk{
+ border-radius:5px;
+ }  /*登録者情報のフリガナのフォーム部分*/
+
+.c_field_a{
+border-radius:5px;
+margin-left: 57px;
+ }  /*登録者情報の名前フリガナ以降のフォーム部分*/
+
+.c_h{
+margin-left: 47px;	
+}  /*登録者情報の各項目部分*/
+
+.c_p_tg{
+ font-size:200%;
+ background-color:#EEEEEE;
+ }  /*パスワード変更画面の見出し（グレーの箇所）*/
+
+.c_p{
+margin-top:30px;
+margin-left: 250px;	
+}  /*登録者のパスワード変更画面のbody*/
+
+.c_p_b{
+margin-left: 30px;
+} /*登録者のパスワード変更画面のパスワード変更の見出し以外の指定*/
+
+.c_p_f{
+border-radius:5px;	
+}/*登録者のパスワード変更画面のパスワード変更の入力フォーム指定*/
+
+.c_p_l{
+margin-left: 75px;	
+}/*登録者のパスワード変更画面のパスワード変更の入力フォーム横の項目指定*/
