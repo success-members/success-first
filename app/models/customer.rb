@@ -21,4 +21,7 @@ class Customer < ApplicationRecord
   has_many :shipping_address, dependent: :destroy
 
 
+  has_many :orders
+
+
 end

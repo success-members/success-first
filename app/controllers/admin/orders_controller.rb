@@ -1,13 +1,23 @@
 class Admin::OrdersController < ApplicationController
+
 	def index
 		@orders = Order.all
 
 	end
+
 	def show
-		@customer = Customer.find(params[:id])
+		@order = Order.find(params[:id])
+		@order_product = OrderProduct.find(params[:id])
 	end
+
 	def update
 		@order = Order.find(params[:id])
-		  @order.update(product_params)
+		  @order.update(order_params)
 	end
+
+	private
+	def order_params
+		params.require(:order).permit(:order_status)
+	end
+
 end
