@@ -46,9 +46,7 @@
 						<%= f.radio_button :is_deleted, true %>
 						<%= f.label :is_deleted, '有効', value: true, class: 'a_c_blank_r' %>
 
-						<%= link_to retire_path(@customer) do %>
 						<%= f.radio_button :is_deleted, false %>
-						<% end %>
 						<%= f.label :is_deleted, '退会済み', value: false %>
 					</td>
 				</tr>
