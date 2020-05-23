@@ -20,19 +20,19 @@ class OrdersController < ApplicationController
 		@order.payment_method = params[:order][:payment_method].to_i
 		@order_products = OrderProduct.new
 		@cart_items = CartItem.where(customer_id: current_customer.id)
-		receive_addressee = params
+		@receive_addressee = params[:addressee].to_i
 		receive_order = params.require(:order)
-		if receive_addressee[:addressee].to_i == 0
+		if @receive_addressee == 0
 			@postcode = current_customer.postcode
 			@address = current_customer.address
 			@name = current_customer.last_name + current_customer.first_name
-		elsif receive_addressee[:addressee].to_i == 1
+		elsif @receive_addressee == 1
 			if receive_order[:billing]
 				@postcode = receive_order[:billing].split[0]
 				@address = receive_order[:billing].split[1]
 				@name = receive_order[:billing].split[2]
 			end
-		elsif receive_addressee[:addressee].to_i == 2
+		elsif @receive_addressee == 2
 			@postcode = receive_order[:postcode]
 			@address = receive_order[:address]
 			@name = receive_order[:name]
@@ -40,10 +40,22 @@ class OrdersController < ApplicationController
 	end
 
 	def create
+		receive_param = params[:addressee].to_i
 		@order = Order.new(order_params)
 		@order.customer_id = current_customer.id
 		if @order.save
 			cart_items = CartItem.where(customer_id: current_customer.id)
+			if receive_param == 2
+				add_shipping = ShippingAddress.new
+				add_shipping.customer_id = current_customer.id
+				add_shipping.postcode = @order.postcode
+				add_shipping.address = @order.address
+				add_shipping.name = @order.name
+				unless add_shipping.save
+					@shipping_address = ShippingAddress.where(customer_id: current_customer.id)
+					render :new
+				end
+			end
 			cart_items.each do |cart_item|
 				order_product = OrderProduct.new
 				order_product.order_id = @order.id
