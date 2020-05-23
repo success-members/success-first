@@ -15,24 +15,24 @@
 			<table class="a_p_btn_position a_p_table">
 				<tr>
 					<td class="col-xs-3">商品名</td>
-					<td class="a_p_form"><%= f.text_field :name, class: 'a_p_form_with a_p_form_height' %></td>
+					<td class="a_p_form"><%= f.text_field :name, class: 'a_p_form_width a_p_form_height' %></td>
 				</tr>
 
 				<tr>
 					<td class="col-xs-3">商品説明</td>
-					<td class="a_p_form"><%= f.text_area :explanation, class: 'a_p_row-5 a_p_form_with' %></td>
+					<td class="a_p_form"><%= f.text_area :explanation, class: 'a_p_row-5 a_p_form_width' %></td>
 				</tr>
 
 				<tr>
 					<td class="col-xs-3">ジャンル</td>
 					<td class="a_p_form">
-						<%= f.collection_select :genre_id, Genre.all, :id, :name, class: 'a_p_form_with a_p_form_height' %>
+						<%= f.collection_select :genre_id, Genre.all, :id, :name, class: 'a_p_form_width a_p_form_height' %>
 					</td>
 				</tr>
 
 				<tr>
 					<td class="col-xs-3">税抜価格</td>
-					<td><%= f.text_field :price , class: 'a_p_form_with a_p_form_height'%>円</td>
+					<td><%= f.text_field :price , class: 'a_p_form_width a_p_form_height'%>円</td>
 				</tr>
 
 				<tr>

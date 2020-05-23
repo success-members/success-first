@@ -1,11 +1,13 @@
 <div class="container">
 	<div class="row">
-		<h3 class="col-xs-2 text-center a_c_i_headline">会員一覧</h3>
+		<div class="col-xs-3 a_c_i_headline">
+			<h3 class="text-center">会員一覧</h3>
+		</div>
 	</div>
 
 	<div class="row">
 		<!-- 会員一覧 -->
-		<div class="customer_all col-xs-7">
+		<div class="a_customer_all col-xs-7">
 			<table class="table">
 				<thead>
 					<tr class="active">
@@ -29,9 +31,9 @@
 							<td>
 
 								<% if customer.is_deleted == true %>
-									<%= customer.is_deleted = '有効' %>
+									<%= customer.is_deleted = '退会済み' %>
 								<% else %>
-									<%= customer.is_deleted = '退会済' %>
+									<%= customer.is_deleted = '有効' %>
 								<% end %>
 							</td>
 						</tr>
