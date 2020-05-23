@@ -1,0 +1,18 @@
+<% if @product == "1"%>
+    <h1>検索結果（商品）</h1>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td>
+            <a href="/products/<%= product.id %>"><%= attachment_image_tag product, :image, fallback: "no_image.jpg", size: "100x100" %>               
+            </a>
+          </td>
+          <td><%= link_to product.name, product_path(product) %></td>
+          <td>¥<%= product.price %></td>       
+        </tr>
+      <% end %>
+    </tbody>    
+<% elsif @product == "2" %>
+    <h2>検索結果（商品）</h2>
+<% else %>  
+<% end %>

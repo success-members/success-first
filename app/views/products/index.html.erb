@@ -25,7 +25,7 @@
 
 			<% else %>
 				<h1>商品一覧</h1>
-				<p>(全x件)</p>
+				<p>(全<%= @products.count %>件)</p>
 
 				<% @products.each do |product| %>
 					<p><a href="/products/<%= product.id %>"><%= attachment_image_tag product, :image, fallback: "no_image.jpg", size: "100x100" %></a></p>

@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   get 'password/:id' => 'customers#password',as:"password" 
   put "change/:id" => "customers#change_password", as: 'change'
 
+  get 'search' => 'search#search',as:'search'#検索機能実装のためのルート設定
+
   resources :shipping_addresses
  
 
