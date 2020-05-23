@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<h3 class="text-center col-xs-4 a_c_headline"><%= @customer.last_name %>　<%= @customer.first_name %>さんの会員情報編集</h3>
+		<h3 class="text-center col-xs-4 a_c_headline"><%= @customer.last_name %> <%= @customer.first_name %>さんの会員情報編集</h3>
 	</div>
 
 	<div class="row">
@@ -12,42 +12,42 @@
 				</tr>
 				<tr>
 					<td class="col-xs-2">氏名</td>
-					<td><%= f.text_field :last_name %>　<%= f.text_field :first_name %></td>
+					<td><%= f.text_field :last_name, class: 'a_c_form_height a_c_form_width' %> <%= f.text_field :first_name, class: 'a_c_form_height a_c_form_width' %></td>
 				</tr>
 
 				<tr>
 					<td class="col-xs-2">フリガナ</td>
-					<td><%= f.text_field :last_name_kana %>　<%= f.text_field :first_name_kana %></td>
+					<td><%= f.text_field :last_name_kana, class: 'a_c_form_height a_c_form_width' %> <%= f.text_field :first_name_kana, class: 'a_c_form_height a_c_form_width' %></td>
 				</tr>
 
 				<tr>
 					<td class="col-xs-2">郵便番号</td>
-					<td><%= f.text_field :postcode %></td>
+					<td><%= f.text_field :postcode, class: 'a_c_form_height a_c_form_width' %></td>
 				</tr>
 
 				<tr>
 					<td class="col-xs-2">住所</td>
-					<td><%= f.text_field :address %></td>
+					<td><%= f.text_field :address, class: 'a_c_form_height a_c_address_form_width' %></td>
 				</tr>
 
 				<tr>
 					<td class="col-xs-2">電話番号</td>
-					<td><%= f.text_field :phone_number %></td>
+					<td><%= f.text_field :phone_number, class: 'a_c_form_height' %></td>
 				</tr>
 
 				<tr>
 					<td class="col-xs-2">メールアドレス</td>
-					<td><%= f.text_field :email %></td>
+					<td><%= f.text_field :email, class: 'a_c_form_height' %></td>
 				</tr>
 
 				<tr>
 					<td class="col-xs-2">会員ステータス</td>
 					<td>
-						<%= f.radio_button :is_deleted, true, checked: true %>
-						<%= f.label :is_deleted, '有効', value: true %>
-
 						<%= f.radio_button :is_deleted, false %>
-						<%= f.label :is_deleted, '退会済', value: false %>
+						<%= f.label :is_deleted, '有効', value: false, class: 'a_c_blank_r' %>
+
+						<%= f.radio_button :is_deleted, true %>
+						<%= f.label :is_deleted, '退会済み', value: true %>
 					</td>
 				</tr>
 			</table>
