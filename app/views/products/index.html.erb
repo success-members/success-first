@@ -23,18 +23,16 @@
 					<h1><%= @search_genre.name %>一覧<small>(全x件)</small></h1>
 					<!-- 商品 -->
 					<% @products.each do |product| %>
-						<% if product.genre.is_valid %>
-							<% if product.genre_id == @search_genre.id %>
-								<div class="col-xs-3  pull-left">
-									<p><a href="/products/<%= product.id %>"><%= attachment_image_tag product, :image, fallback: "no_image.jpg", size: "150x100" %></a></p>
-									<div class="product_n">
-										<p><%= link_to product.name, product_path(product) %></p>
-									</div>
-									<div class="product_p">
-										<p>¥<%= product.price %></p>
-									</div>
+						<% if product.genre.is_valid && product.genre_id == @search_genre.id %>
+							<div class="col-xs-3  pull-left">
+								<p><a href="/products/<%= product.id %>"><%= attachment_image_tag product, :image, fallback: "no_image.jpg", size: "150x100" %></a></p>
+								<div class="product_n">
+									<p><%= link_to product.name, product_path(product) %></p>
 								</div>
-							<% end %>
+								<div class="product_p">
+									<p>¥<%= product.price %></p>
+								</div>
+							</div>
 						<% end %>
 					<% end %>
 
