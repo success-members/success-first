@@ -1,6 +1,6 @@
 class Admin::CustomersController < ApplicationController
 
-	#before_action :authenticate_admin!
+	before_action :authenticate_admin!
 
 	# 会員一覧画面
 	def index
