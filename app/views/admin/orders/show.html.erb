@@ -1,0 +1,44 @@
+<div class="container">
+   <div class="row">
+    <div class="col-xs-12">
+      <h2>注文履歴詳細</h2>
+    </div>
+          <table>
+            <tr>
+              <td>氏名</td><td><%= current_customer.last_name %><%= current_customer.first_name %></td>
+            </tr>
+            <tr>
+              <td>郵便番号</td><td><%= current_customer.postcode %></td><td>
+            </tr>
+            <tr>
+              <td>配送先住所</td><td><%= current_customer.address %></td>
+            </tr>
+            <tr>
+              <td>注文ステータス</td><td></td>
+            </tr>
+             <thead>
+               <tr>
+                 <th>商品名</th>
+                 <th>単価</th>
+                 <th>数量</th>
+                 <th>小計</th>
+                 <th>制作ステータス</th>
+               </tr>
+             </thead>
+
+            <tbody>
+              <% @products.each do |product| %>
+               <tr>
+                <td><%= link_to order.customer.name, customer_path(customer) %></td>
+                <td></td>
+                <td>%= order.order_podeuts.sum(:nanbar).to_s %></td>
+                <td><%= f.text_field :price %>円<br></td>
+                <td><%= f.select :is_sale, [['製作中',true], ['着手不可', false]] %></td>
+              </tr>
+              <% end %>
+
+
+            </tbody>
+           </table>
+  </div>
+</div>

@@ -1,3 +1,65 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.o_g{
+font-size: 200%;
+background-color:#EEEEEE;
+margin-left:500px;
+} /*注文履歴一覧ページの見出し（グレー）*/
+
+.o_ia{
+background-color:#EEEEEE;
+} /*注文履歴一覧ページのテーブルの項目部分（グレー）*/
+
+.o_td{
+width:150px;
+}/*注文履歴一覧ページのテーブルの注文日（グレー）*/
+
+.o_ta{
+}/*注文履歴一覧ページのテーブルの配送先（グレー）*/
+
+.o_tn{
+width:200px;
+}/*注文履歴一覧ページのテーブルの注文商品（グレー）*/
+
+.o_tb{
+width:100px;
+}/*注文履歴一覧ページのテーブルの支払金額（グレー）*/
+
+.o_tt{
+width:150px;
+}/*注文履歴一覧ページのテーブルのステータス（グレー）*/
+
+.o_tz{
+width:150px;
+}/*注文履歴一覧ページのテーブルの注文詳細（グレー）*/
+
+.o_sh{
+font-size: 150%;
+background-color:#EEEEEE;
+margin-left:100px;
+}/*注文履歴詳細ページの見出し（注文履歴詳細）（グレー）*/
+
+.o_s_tf{
+background-color:#EEEEEE;
+width:100px;	
+}/*注文履歴詳細ページの注文情報テーブルの項目（グレー）*/
+
+.o_stf{
+background-color:#EEEEEE;	
+}/*注文履歴詳細ページの請求情報テーブルと注文内容テーブルの項目（グレー）*/
+
+.o_s_hf{
+font-size: 120%;	
+}/*注文履歴詳細ページの見出し（注文情報）*/
+
+.o_s_hs{
+margin-left:515px;
+font-size: 120%;	
+}/*注文履歴詳細ページの見出し（請求情報）*/
+
+.o_s_ht{
+font-size: 120%;	
+}/*注文履歴詳細ページの見出し（注文内容）*/
