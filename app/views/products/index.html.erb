@@ -28,8 +28,12 @@
 						<% if product.genre_id == @search_genre.id %>
 							<div class="col-xs-4  pull-left">
 								<p><a href="/products/<%= product.id %>"><%= attachment_image_tag product, :image, fallback: "no_image.jpg", size: "150x100" %></a></p>
-								<p><%= link_to product.name, product_path(product) %></p>
-								<p>¥<%= product.price %></p>
+								<div class="product_n">
+									<p><%= link_to product.name, product_path(product) %></p>
+								</div>
+								<div class="product_p">
+									<p>¥<%= product.price %></p>
+								</div>
 							</div>
 						<% end %>
 					<% end %>

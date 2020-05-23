@@ -1,3 +1,37 @@
 // Place all the styles related to the cart_items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* カート一覧ページの見出し（グレー）*/
+.cart_title {
+	font-size: 110%;
+	height: 25px;
+	background-color:#EEEEEE;
+	margin-left: 20px;
+	text-align: center;
+}
+
+/* カート一覧ページのショッピングカートテーブルの項目部分（グレー）*/
+.table_t_title {
+	background-color:#EEEEEE;
+}
+
+/* カート一覧ページの数量のフォーム項目部分（グレー）*/
+.number_box {
+	width: 40px;
+}
+
+/* カート一覧ページの合計金額テーブルの項目部分（グレー）*/
+.total_t_title {
+	background-color:#EEEEEE;
+}
+
+/* カート一覧ページの２段目*/
+.second_block {
+	margin-top: 30px;
+}
+
+/* カート一覧ページの3段目*/
+.third_block {;
+	margin-top: 30px;
+}
