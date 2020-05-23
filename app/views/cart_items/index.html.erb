@@ -40,7 +40,7 @@
 			<% @cart_items.each do |cart_item| %>
 				<% @total_amount += cart_item.product.price * cart_item.number %>
 				<tbody>
-					<tr>
+					<tr class="cart_t_value">
 						<td>
 							<%= attachment_image_tag cart_item.product, :image, fallback: "no_image.jpg", size: "40x40" %>
 							<%= cart_item.product.name %>
@@ -73,7 +73,7 @@
 			    <tbody>
 					  <tr>
 							<th class="total_t_title">合計金額</th>
-							<td><%= @total_amount %></td>
+							<td class="total_t_value"><%= @total_amount %></td>
 					  </tr>
 				  </tbody>
 		    </table>

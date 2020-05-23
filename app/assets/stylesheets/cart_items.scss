@@ -16,6 +16,12 @@
 	background-color:#EEEEEE;
 }
 
+/* カート一覧ページのショッピングカートテーブルの値部分 */
+.cart_t_value {
+	font-size: 110%;
+	font-weight: bold;
+}
+
 /* カート一覧ページの数量のフォーム項目部分（グレー）*/
 .number_box {
 	width: 40px;
@@ -24,6 +30,12 @@
 /* カート一覧ページの合計金額テーブルの項目部分（グレー）*/
 .total_t_title {
 	background-color:#EEEEEE;
+}
+
+/* カート一覧ページの合計金額テーブルの値部分 */
+.total_t_value {
+	font-size: 110%;
+	font-weight: bold;
 }
 
 /* カート一覧ページの２段目*/
