@@ -1,3 +1,50 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.genre_head {
+	text-align: center;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.panel-body {
+	font-size: 18px;
+}
+
+.product_n {
+	font-weight: bold;
+}
+
+.product_p {
+	font-weight: bold;
+}
+
+.product_datail {
+	margin-top: 30px;
+}
+
+.product_text {
+	width: 200px;
+	height: 200px;
+}
+
+.product_name {
+	margin: auto;
+	font-weight: bold;
+	font-size: 25px;
+}
+
+.product_price {
+	font-weight: bold;
+	font-size: 25px;
+}
+
+.product_select {
+	width: 100px;
+	height: 45px;
+}
+
+.prdouct_btn {
+	text-align: right;
+}
