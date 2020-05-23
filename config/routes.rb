@@ -29,7 +29,7 @@ Rails.application.routes.draw do
 
   resources :shipping_addresses
  
-
+  get 'searches' => 'search#searches',as:'searches'
 
   # admin
   namespace :admin do

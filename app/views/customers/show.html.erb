@@ -44,7 +44,7 @@
   </h4>
 <br> <!--改行による隙間-->
   <h4><strong>注文履歴</strong> &nbsp; &nbsp;
-  	<%= link_to ' 一覧を見る', orders_path,class: "btn btn-primary" %>
+  	<%= link_to ' 一覧を見る', orders_path(customer_id:current_customer.id),class: "btn btn-primary" %>
   </h4>
 
 </body>

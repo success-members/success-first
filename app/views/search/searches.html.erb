@@ -1,0 +1,30 @@
+<% if @product_or_customer == "1"%>
+    <h1>検索結果（商品）</h1>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td>
+            <a href="/products/<%= product.id %>"><%= attachment_image_tag product, :image, fallback: "no_image.jpg", size: "100x100" %>               
+            </a>
+          </td>
+          <td><%= link_to product.name, product_path(product) %></td>
+          <td>¥<%= product.price %></td>       
+        </tr>
+      <% end %>
+    </tbody>    
+    
+ 
+<% elsif @product_or_customer == "2" %>
+<h1>検索結果（顧客）</h1>
+  <% @customers.each do |customer| %>
+  <span>
+  <%= customer.last_name %><%= customer.first_name %>
+  </span>
+  <span>
+  <%= link_to ' 注文履歴', orders_path(customer_id: customer.id),class: "btn btn-primary" %><br>
+  </span>
+  <% end %>
+    
+
+   
+<% end %>

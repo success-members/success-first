@@ -64,7 +64,9 @@ class OrdersController < ApplicationController
 	end
 
 	def index
-		@orders = Order.where(customer_id: current_customer.id)
+		customer = Customer.find(params[:customer_id])
+		@orders = Order.where(customer_id: customer.id)
+
 	end
 
 	def show

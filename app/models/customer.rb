@@ -21,4 +21,22 @@ class Customer < ApplicationRecord
   has_many :shipping_address, dependent: :destroy
 
 
+def Customer.search(search, product_or_customer, how_search)
+      if how_search == "1"
+          #Customer.where(['first_name LIKE ?', "#{search}"])
+          Customer.where(['first_name LIKE ? OR last_name LIKE ? OR last_name_kana LIKE ? OR first_name_kana LIKE ?', "#{search}", "#{search}", "#{search}", "#{search}"])
+      elsif how_search == "2"
+          #Customer.where(['first_name LIKE ?', "#{search}%"])
+          Customer.where(['first_name LIKE ? OR last_name LIKE ? OR last_name_kana LIKE ? OR first_name_kana LIKE ?', "#{search}%", "#{search}%", "#{search}%", "#{search}%"])
+      elsif how_search == "3"
+          #Customer.where(['first_name LIKE ?', "%#{search}"])
+          Customer.where(['first_name LIKE ? OR last_name LIKE ? OR last_name_kana LIKE ? OR first_name_kana LIKE ?', "%#{search}", "%#{search}", "%#{search}", "%#{search}"])
+      elsif how_search == "4"
+         # Customer.where(['first_name LIKE ?', "%#{search}%"])
+          Customer.where(['first_name LIKE ? OR last_name LIKE ? OR last_name_kana LIKE ? OR first_name_kana LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
+      else
+          Customer.all
+      end
+end
+
 end
