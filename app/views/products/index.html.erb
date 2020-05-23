@@ -10,9 +10,7 @@
 				<!-- ジャンル一覧 -->
 				<div class="panel-body">
 					<% @genres.each do |genre| %>
-						<% if genre.is_valid %>
-							<p><%= link_to genre.name, :controller => 'products', :action => 'index', id: genre.id %></p>
-						<% end %>
+						<p><%= link_to genre.name, :controller => 'products', :action => 'index', id: genre.id %></p>
 					<% end %>
 				</div>
 			</div>
@@ -25,16 +23,18 @@
 					<h1><%= @search_genre.name %>一覧<small>(全x件)</small></h1>
 					<!-- 商品 -->
 					<% @products.each do |product| %>
-						<% if product.genre_id == @search_genre.id %>
-							<div class="col-xs-4  pull-left">
-								<p><a href="/products/<%= product.id %>"><%= attachment_image_tag product, :image, fallback: "no_image.jpg", size: "150x100" %></a></p>
-								<div class="product_n">
-									<p><%= link_to product.name, product_path(product) %></p>
+						<% if product.genre.is_valid %>
+							<% if product.genre_id == @search_genre.id %>
+								<div class="col-xs-3  pull-left">
+									<p><a href="/products/<%= product.id %>"><%= attachment_image_tag product, :image, fallback: "no_image.jpg", size: "150x100" %></a></p>
+									<div class="product_n">
+										<p><%= link_to product.name, product_path(product) %></p>
+									</div>
+									<div class="product_p">
+										<p>¥<%= product.price %></p>
+									</div>
 								</div>
-								<div class="product_p">
-									<p>¥<%= product.price %></p>
-								</div>
-							</div>
+							<% end %>
 						<% end %>
 					<% end %>
 
@@ -43,11 +43,17 @@
 						<h1>商品一覧<small>(全x件)</small></h1>
 						<!-- 商品 -->
 						<% @products.each do |product| %>
-							<div class="col-xs-3 pull-left">
-								<p><a href="/products/<%= product.id %>"><%= attachment_image_tag product, :image, fallback: "no_image.jpg", size: "150x100" %></a></p>
-								<p><%= link_to product.name, product_path(product) %></p>
-								<p>¥<%= product.price %></p>
-							</div>
+							<% if product.genre.is_valid %>
+								<div class="col-xs-3 pull-left">
+									<p><a href="/products/<%= product.id %>"><%= attachment_image_tag product, :image, fallback: "no_image.jpg", size: "150x100" %></a></p>
+									<div class="product_n">
+										<p><%= link_to product.name, product_path(product) %></p>
+									</div>
+									<div class="product_p">
+										<p>¥<%= product.price %></p>
+									</div>
+								</div>
+							<% end %>
 						<% end %>
 					</div>
 

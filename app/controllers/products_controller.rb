@@ -2,8 +2,8 @@ class ProductsController < ApplicationController
 	before_action :authenticate_customer!, except: [:index]
 
 	def index
-		@products = Product.all
-		@genres = Genre.all
+		@products = Product.where(is_sale: true)
+		@genres = Genre.where(is_valid: true)
 		if params[:id].present?
 			@search_genre = Genre.find(params[:id])
 		end
