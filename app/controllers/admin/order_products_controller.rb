@@ -1,9 +1,16 @@
 class Admin::OrderProductsController < ApplicationController
-	def index
-		@products = Product.all
+
+	def order_products
+		@order_product = OrderProduct.find(params[:id])
 	end
+
+	def update
+		@order_product = OrderProduct.find(params[:id])
+		@order_product.update(order_product_params)
+	end
+
 	private
-	def product_params
-		params.require(:product).permit(:name, :is_sale)
+	def order_product_params
+		params.require(:order_product).permit(:making_status)
 	end
 end
