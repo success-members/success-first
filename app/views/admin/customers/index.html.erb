@@ -31,9 +31,9 @@
 							<td>
 
 								<% if customer.is_deleted == true %>
-									<%= customer.is_deleted = '退会済み' %>
-								<% else %>
 									<%= customer.is_deleted = '有効' %>
+								<% else %>
+									<%= customer.is_deleted = '退会済み' %>
 								<% end %>
 							</td>
 						</tr>

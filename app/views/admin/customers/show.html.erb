@@ -9,11 +9,11 @@
 		<table class="a_c_table">
 			<tr>
 				<td class="col-xs-4">顧客ID</td>
-				<td class="col-xs-5"><%= @customer.id %>　
+				<td class="col-xs-5"><%= @customer.id %>
 					<% if @customer.is_deleted == true %>
-						<%= @customer.is_deleted = '退会済み' %>
-					<% else %>
 						<%= @customer.is_deleted = '有効' %>
+					<% else %>
+						<%= @customer.is_deleted = '退会済み' %>
 					<% end %>
 				</td>
 			</tr>
@@ -49,7 +49,7 @@
 			</tr>
 		</table>
 
-			<%= link_to '編集する', edit_admin_customer_path(@customer), class: 'btn btn-primary' %>
+			<%= link_to '編集する', edit_admin_customer_path(@customer), class: 'btn btn-primary a_c_blank_r' %>
 			<%= link_to '注文履歴一覧を見る', admin_orders_path(@customer), class: 'btn btn-primary' %>
 	</div>
 </div>
