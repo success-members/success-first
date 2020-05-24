@@ -1,0 +1,99 @@
+<div class="container">
+
+	<!-- エラーメッセージ -->
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="error_msg">
+				<% if @order.errors.any? %>
+					<h4><%= @order.errors.count %> error prohibited this obj from being saved: </h4>
+					<ul>
+						<% @order.errors.full_messages.each do |message| %>
+								<li><%= message %></li>
+						<% end %>
+					</ul>
+				<% end %>
+			</div>
+		</div>
+	</div>
+
+	<!-- 注文情報入力タイトル -->
+	<div class="row">
+		<div class="col-xs-2 order_n_title text-center">
+			<p>注文情報入力</p>
+		</div>
+	</div>
+
+	<!-- 注文情報入力フォーム -->
+	<div class="row">
+		<div class="col-xs-12">
+
+			<!-- form_for -->
+			<%= form_for(@order, url: confirm_orders_path) do |f| %>
+
+				<!-- 支払方法 -->
+				<dev class="row">
+					<div class="col-xs-2 payment_m_title pull-left">
+						<p>支払方法</p>
+					</div>
+				</dev>
+				<dev class="row">
+					<div class="col-xs-2 payment_m_drop pull-left">
+						<p><%= f.radio_button :payment_method, 0, checked:true %>クレジットカード</p>
+						<p><%= f.radio_button :payment_method, 1 %>銀行振込</p>
+					</div>
+				</dev>
+
+				<!-- お届け先 -->
+				<dev class="row">
+					<div class="col-xs-2 to_addressee_title pull-left">
+						<p>お届け先</p>
+
+						<% if @address_error_msg %>
+							<p><%= @address_error_msg %></p>
+						<% end %>
+					</div>
+				</dev>
+				<dev class="row">
+					<div class="col-xs-12 address_s_title pull-left">
+						<p><%= radio_button_tag :addressee, 0, checked:true %>ご自身の住所</p>
+						<div class="address_s_value">
+							<p><%= current_customer.postcode %>
+								<%= current_customer.address %>
+							</p>
+							<p>
+								<%= current_customer.last_name %>
+								<%= current_customer.first_name %>
+							</p>
+						</div>
+					</div>
+				</dev>
+				<dev class="row">
+					<div class="col-xs-12 address_s_title pull-left">
+						<p><%= radio_button_tag :addressee, 1 %>登録済住所から選択</p>
+						<div class="address_s_value">
+							<p>
+								<!-- TODO メソッドのbillingを適当な何かに変更 -->
+								<%= f.collection_select(:billing, @shipping_address, :registered_address, :registered_address) %>
+							</p>
+						</div>
+					</div>
+				</dev>
+				<dev class="row">
+					<div class="col-xs-12 address_s_title pull-left">
+						<p><%= radio_button_tag :addressee, 2 %>新しいお届け先</p>
+						<div class="address_s_value">
+							<p>郵便番号(ハイフンなし)<span class="postcode_v"><%= f.text_field :postcode %></span></p>
+							<p>住所<span  class="address_v"><%= f.text_field :address %></span></p>
+							<p>宛名<span class="name_v"><%= f.text_field :name %></span></p>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12 text-center">
+						<%= f.submit '確認画面へ進む', class: "btn btn-primary btn-lg" %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div> 
