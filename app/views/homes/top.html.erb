@@ -1,9 +1,7 @@
 <div class="container">
 
 	<div class="row">
-	<div class='col-xs-3'>
-	<h2>ジャンル検索</h2>
-	</div>
+	<%= render 'products/genre_search', genres: @genres %>
 
 	<div class='col-xs-9'>
 	<p>ようこそ、NaganoCakeへ！</p>
@@ -14,11 +12,21 @@
 	</div>
 
     <div class="row">
-	  <div class='col-xs-3'></div>
-	  <div class='col-xs-9'>
-	    <h2>オススメ商品</h2>
-	    <p>商品の写真や情報などが一覧で出てくる。（後ほど設定が必要）</p>　<!--後ほど修正が必要仮作成-->
-	    <p>もっと見る（リンクまだ）</p><!--後ほど修正が必要仮作成-->
-      </div>
+	  	<div class='col-xs-3'></div>
+	  	<div class='col-xs-9'>
+		    <h2>オススメ商品</h2>
+		    <% @recommend_products.each do |rp| %>
+		    	<div class="col-xs-3 pull-left">
+					<p><a href="/products/<%= rp.id %>"><%= attachment_image_tag rp, :image, fallback: "no_image.jpg", size: "150x100" %></a></p>
+					<div class="product_n">
+						<p><%= link_to rp.name, product_path(rp) %></p>
+					</div>
+					<div class="product_p">
+						<p>¥<%= rp.price %></p>
+					</div>
+				</div>
+			<% end %>
+		    <p><%= link_to 'もっと見る', products_path, class: "pull-right" %></p>
+	    </div>
     </div>
 </div>
