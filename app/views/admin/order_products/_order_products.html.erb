@@ -1,0 +1,4 @@
+<%= form_with model: order_product, url: admin_order_product_path(order_product), local: true do |f| %>
+  <%= f.select :making_status, OrderProduct.making_statuses.keys %>
+  <%= f.submit  '更新', class: 'btn btn-primary btn-sm' %>
+<% end %>

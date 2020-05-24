@@ -8,6 +8,7 @@ class Admin::OrdersController < ApplicationController
 	def show
 		@order = Order.find(params[:id])
 		@order_product = OrderProduct.find(params[:id])
+		@total_amount = @order.billing - @order.postage
 	end
 
 	def update

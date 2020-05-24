@@ -6,10 +6,11 @@ class Admin::OrderProductsController < ApplicationController
 
 	def update
 		@order_product = OrderProduct.find(params[:id])
+		@order_product.update(order_product_params)
 	end
 
 	private
-	def product_params
-		params.require(:order_products).permit(:making_status)
+	def order_product_params
+		params.require(:order_product).permit(:making_status)
 	end
 end
