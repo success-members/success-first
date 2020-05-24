@@ -8,19 +8,11 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <% if request.path_info.include?("admin") %>
+    <%= render 'layouts/admin/header' %>
+  <% else %>
+    <%= render 'layouts/header' %>
+  <% end %>
 
-  <body>
-    <div class="container">
-      <p id="notice"><%= notice %></p> <!--デバイスでnotice設定されているので呼び出してるだけ-->
-    </div>
-
-    <% if request.path_info.include?("admin") %>
-      <%= render 'layouts/admin/header' %>
-    <% else %>
-      <%= render 'layouts/header' %>
-    <% end %>
-
-    <%= yield %>
-
-  </body>
+  <%= yield %>
 </html>
