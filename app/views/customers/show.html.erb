@@ -1,51 +1,52 @@
-<body class="c_s">
-  <span class="c_g">マイページ</span>
-  <h4><strong>登録者情報</strong>
-    <%= link_to ' 編集する', edit_customer_path(current_customer.id),class: "btn btn-primary" %><!--リンク反映済み-->
-    <%= link_to "パスワードを変更する", password_path(current_customer),class: "btn btn-primary" %>
-  </h4>
-<br> <!--改行による隙間-->
-  <div class='row'>
-    <div class='col-xs-5'>
-      <table class="table table-bordered">	
-	    <tbody>
-		  <tr>
-			<th class="c_s_tg">氏名</th>
-			<td class="c_s_tw"><%= current_customer.last_name %><%= current_customer.first_name %></td>			
-		  </tr>
-		  <tr>
-			<th class="c_s_tg">カナ</th>
-			<td class="c_s_tw"><%= current_customer.last_name_kana %><%= current_customer.first_name_kana %></td>
-		  </tr>
-		  <tr>
-			<th class="c_s_tg">郵便番号</th>
-			<td class="c_s_tw"><%= current_customer.postcode %></td>
-		  </tr>
-		  <tr>
-			<th class="c_s_tg">住所</th>
-			<td class="c_s_tw"><%= current_customer.address %></td>
-		  </tr>
-		  <tr>
-			<th class="c_s_tg">電話番号</th>
-			<td class="c_s_tw"><%= current_customer.phone_number %></td>
-		  </tr>
-		  <tr>
-			<th class="c_s_tg">メールアドレス</th>
-			<td class="c_s_tw"><%= current_customer.email %></td>
-		  </tr>
-	    </tbody>
-      </table>
-    </div>
-  </div>
-<br> <!--改行による隙間-->
-  <h4>
-  	<strong>配送先</strong> &nbsp; &nbsp; &nbsp; &nbsp;<!--&nbsp;は空白を意味してます（1つで半角スペース1回分）-->
-    <%= link_to ' 一覧を見る', shipping_addresses_path(current_customer.id),class: "btn btn-primary" %>
-  </h4>
-<br> <!--改行による隙間-->
-  <h4><strong>注文履歴</strong> &nbsp; &nbsp;
-  	<%= link_to ' 一覧を見る', orders_path,class: "btn btn-primary" %>
-  </h4>
-
+<body>
+  <div class="c_s">
+	  <span class="c_g">マイページ</span>
+	  <h4><strong>登録者情報</strong>
+	    <%= link_to ' 編集する', edit_customer_path(current_customer.id),class: "btn btn-primary" %><!--リンク反映済み-->
+	    <%= link_to "パスワードを変更する", password_path(current_customer),class: "btn btn-primary" %>
+	  </h4>
+	<br> <!--改行による隙間-->
+	  <div class='row'>
+	    <div class='col-xs-5'>
+	      <table class="table table-bordered">	
+		    <tbody>
+			  <tr>
+				<th class="c_s_tg">氏名</th>
+				<td class="c_s_tw"><%= current_customer.last_name %><%= current_customer.first_name %></td>			
+			  </tr>
+			  <tr>
+				<th class="c_s_tg">カナ</th>
+				<td class="c_s_tw"><%= current_customer.last_name_kana %><%= current_customer.first_name_kana %></td>
+			  </tr>
+			  <tr>
+				<th class="c_s_tg">郵便番号</th>
+				<td class="c_s_tw"><%= current_customer.postcode %></td>
+			  </tr>
+			  <tr>
+				<th class="c_s_tg">住所</th>
+				<td class="c_s_tw"><%= current_customer.address %></td>
+			  </tr>
+			  <tr>
+				<th class="c_s_tg">電話番号</th>
+				<td class="c_s_tw"><%= current_customer.phone_number %></td>
+			  </tr>
+			  <tr>
+				<th class="c_s_tg">メールアドレス</th>
+				<td class="c_s_tw"><%= current_customer.email %></td>
+			  </tr>
+		    </tbody>
+	      </table>
+	    </div>
+	  </div>
+	<br> <!--改行による隙間-->
+	  <h4>
+	  	<strong>配送先</strong> &nbsp; &nbsp; &nbsp; &nbsp;<!--&nbsp;は空白を意味してます（1つで半角スペース1回分）-->
+	    <%= link_to ' 一覧を見る', shipping_addresses_path(current_customer.id),class: "btn btn-primary" %>
+	  </h4>
+	<br> <!--改行による隙間-->
+	  <h4><strong>注文履歴</strong> &nbsp; &nbsp;
+	  	<%= link_to ' 一覧を見る', orders_path(customer_id:current_customer.id),class: "btn btn-primary" %>
+	  </h4>
+   </div>
 </body>
 

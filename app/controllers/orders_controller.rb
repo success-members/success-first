@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
 	before_action :authenticate_customer!
-
+    
 	def new
 		@shipping_address = ShippingAddress.where(customer_id: current_customer.id)
 		@order = Order.new
@@ -76,7 +76,9 @@ class OrdersController < ApplicationController
 	end
 
 	def index
-		@orders = Order.where(customer_id: current_customer.id)
+		customer = Customer.find(params[:customer_id])
+		@orders = Order.where(customer_id: customer.id)
+
 	end
 
 	def show

@@ -18,10 +18,12 @@
 @import "bootstrap";
 
 body{
+
  }  /*ヘッダーと各ページの位置が被るので被らないように高さ調節*/
 
  .span_rogo{
- color:white
+ color:black;
+ margin-left:320px;
  }  /*ロゴが見えなかったので、とりあえず白色で設定*/
 
  .h_gs{
@@ -70,7 +72,6 @@ margin-left:100px;
 }
 
  .h_log{
-margin-top:100px;
 margin-left:300px;
  }  /*ログイン画面のbody全体*/
 

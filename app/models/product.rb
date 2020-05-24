@@ -18,7 +18,21 @@ class Product < ApplicationRecord
 	validates :name, presence: true#, uniqueness: true
 	validates :price, presence: true
 	validates :explanation, presence: true
+    
 
+    def Product.search(search, product_or_customer, how_search)
+	    if how_search == "1"
+	        Product.where(['name LIKE ?', "#{search}"])
+	    elsif how_search == "2"
+	        Product.where(['name LIKE ?', "#{search}%"])
+	    elsif how_search == "3"
+	        Product.where(['name LIKE ?', "%#{search}"])
+	    elsif how_search == "4"
+	        Product.where(['name LIKE ?', "%#{search}%"])
+	    else
+	        Product.all
+	    end
+    end
 
 
 end

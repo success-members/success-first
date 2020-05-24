@@ -22,7 +22,6 @@
 	background-color: #eee;
 }
 
-
 /*index表の配置設定*/
 .a_order_all {
 	margin-left: 100px;
@@ -34,14 +33,41 @@
 	margin-bottom: 40px;
 }
 
+.a_o_table th {
+	padding-bottom: 20px;
+	padding-right: 20px;
+}
+
 .a_o_table td {
+	padding-bottom: 20px;
+}
+
+.table a_o_table_down {
+	position: relative;
+}
+
+.a_o_table_price {
+	position: absolute;
+	left: 100px;
+}
+
+.a_o_table_price th {
 	padding-bottom: 10px;
-	padding-right: 10px;
+}
+
+.a_o_table_price td {
+	padding-bottom: 10px;
 }
 
 /*selectの設定*/
-select {
-	width: 50px;
+.a_o_table select {
+	width: 100px;
 	height: 30px;
 }
+
+.a_o_table_down select {
+	width: 100px;
+	height: 30px;
+}
+
 
