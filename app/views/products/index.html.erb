@@ -17,7 +17,7 @@
 									<p><%= link_to product.name, product_path(product) %></p>
 								</div>
 								<div class="product_p">
-									<p>¥<%= product.price %></p>
+									<p>¥<%= ((product.price * @tax).round(2)).ceil %></p>
 								</div>
 							</div>
 						<% end %>
@@ -35,7 +35,7 @@
 										<p><%= link_to product.name, product_path(product) %></p>
 									</div>
 									<div class="product_p">
-										<p>¥<%= product.price %></p>
+										<p>¥<%= ((product.price * @tax).round(2)).ceil %></p>
 									</div>
 								</div>
 							<% end %>

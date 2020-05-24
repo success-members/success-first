@@ -18,7 +18,7 @@
 							<p><%= @product.explanation %></p>
 						</div>
 						<div class="product_price">
-							<p>¥ <%= @product.price %> (税込)</p>
+							<p>¥ <%= ((@product.price * @tax).round(2)).ceil %> (税込)</p>
 						</div>
 					</div>
 				</div>
