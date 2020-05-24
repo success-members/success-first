@@ -1,7 +1,6 @@
-class SearchController < ApplicationController
+class Admin::SearchController < ApplicationController
 
-	def searches
-
+	def index
 		@product_or_customer = params[:option]		
 		@how_search = params[:choice] 
 		if @product_or_customer == "1"
@@ -10,6 +9,6 @@ class SearchController < ApplicationController
 		   @customers = Customer.search(params[:search], @product_or_customer, @how_search)
 		   #@customer = Customer.find(params[:id])
 		end
-        render "searches"
+        render "index"
 	end
 end

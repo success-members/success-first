@@ -39,4 +39,7 @@ def Customer.search(search, product_or_customer, how_search)
       end
 end
 
+  has_many :orders
+
+
 end

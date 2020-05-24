@@ -29,16 +29,20 @@ Rails.application.routes.draw do
 
   resources :shipping_addresses
  
-  get 'searches' => 'search#searches',as:'searches'
+  #get 'searches' => 'search#searches',as:'searches'
 
   # admin
   namespace :admin do
     resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:new, :create, :edit, :update]
     resources :products, only: [:new, :create, :index, :show, :edit, :update]
-    resources :orders, only: [:index, :show]
-    resources :order_products, only: [:index]
+    resources :orders, only: [:index, :show, :update]
+    resources :order_products, only: [:update]
+    resources :searches, only: [:index] 
+    resources :search, only: [:index]
+    
     get 'top' => 'homes#top'
+
     end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

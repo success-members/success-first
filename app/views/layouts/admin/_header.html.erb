@@ -33,7 +33,7 @@
           <div class="row">
             <ul class="nav navbar-nav navbar-right">
               <% if admin_signed_in? %>
-                <%= form_tag(searches_path,:method => 'get') do %> 
+                <%= form_tag(admin_search_index_path,:method => 'get') do %> 
                   <%= text_field_tag :search %>
                   <%= select_tag(:option, options_for_select([["商品名","1"],["顧客名","2"]]))%> 
                   <%= select_tag(:choice, options_for_select([["完全一致検索", "1" ],["前方一致検索", "2" ],["後方一致検索", "3" ],["部分一致検索","4"]]))%>

@@ -11,7 +11,7 @@
 
  .c_s{
  margin-left:100px;
- }  /*会員のマイページのbody全体*/
+ }  /*会員のマイページのbody全体（ヘッダー除く）*/
 
  .c_s_tg{
  width:150px;
@@ -24,7 +24,7 @@
 
  .c_e{
  margin-left:100px;
- }  /*会員のマイページ編集画面のbody全体*/
+ }  /*会員のマイページ編集画面のbody全体（ヘッダー除く）*/
 
  .c_w{
  text-align:center;
@@ -61,7 +61,7 @@ margin-left: 47px;
 .c_p{
 margin-top:30px;
 margin-left: 250px;	
-}  /*登録者のパスワード変更画面のbody*/
+}  /*登録者のパスワード変更画面のbody（ヘッダー除く）*/
 
 .c_p_b{
 margin-left: 30px;
@@ -72,5 +72,5 @@ border-radius:5px;
 }/*登録者のパスワード変更画面のパスワード変更の入力フォーム指定*/
 
 .c_p_l{
-margin-left: 75px;	
+margin-left: 70px;	
 }/*登録者のパスワード変更画面のパスワード変更の入力フォーム横の項目指定*/
