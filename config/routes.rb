@@ -40,7 +40,7 @@ Rails.application.routes.draw do
     resources :order_products, only: [:update]
     resources :searches, only: [:index] 
     resources :search, only: [:index]
-    
+    root 'homes#top' 
     get 'top' => 'homes#top'
   end
 end

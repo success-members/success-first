@@ -1,5 +1,6 @@
 class CartItemsController < ApplicationController
 	before_action :authenticate_customer!
+	before_action :set_tax
 
 	def create
 		@cart_item = CartItem.new(cart_item_params)
@@ -56,6 +57,10 @@ class CartItemsController < ApplicationController
 
 	def set_parameter
 		@total_amount = 0
-  	@cart_items = CartItem.where(customer_id: current_customer.id)
+  		@cart_items = CartItem.where(customer_id: current_customer.id)
+	end
+
+	def set_tax
+		@tax = 1.1 # 税率10%
 	end
 end
