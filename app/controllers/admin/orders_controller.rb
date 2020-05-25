@@ -7,7 +7,6 @@ class Admin::OrdersController < ApplicationController
 
 	def show
 		@order = Order.find(params[:id])
-		@order_product = OrderProduct.find(params[:id])
 		@total_amount = @order.billing - @order.postage
 	end
 
@@ -19,16 +18,23 @@ class Admin::OrdersController < ApplicationController
 
 	def update
 		@order = Order.find(params[:id])
-		  if @order.update(order_params)
-		  	if @order.order_status_before_type_cast == 1
-				@order.order_products.update(making_status: 1)
-				redirect_to admin_order_path(@order)
-			else
-				redirect_to admin_order_path(@order)
+		  #if @order.update(order_params)
+		  	#if @order.order_status_before_type_cast == 1
+				#@order.order_products.update(making_status: 1)
+				#redirect_to admin_order_path(@order)
+			#else
+				#redirect_to admin_order_path(@order)
+			#end
+		#else
+			#redirect_to admin_order_path(@order)
+		#end
+		@order.update(order_params)
+		if @order.order_status_before_type_cast == 1
+			@order.order_products.each do |op|
+				op.update(making_status: 1)
 			end
-		else
-			redirect_to admin_order_path(@order)
 		end
+		redirect_to admin_order_path(@order)
 	end
 
 	private

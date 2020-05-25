@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
 	before_action :authenticate_customer!
-    
+	before_action :set_tax
+
 	def new
 		@shipping_address = ShippingAddress.where(customer_id: current_customer.id)
 		@order = Order.new
@@ -89,5 +90,9 @@ class OrdersController < ApplicationController
 	private
 	def order_params
 		params.require(:order).permit(:payment_method, :postage, :billing, :postcode, :address, :name)
+	end
+
+	def set_tax
+		@tax = 1.1 # 税率10%
 	end
 end

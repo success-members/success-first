@@ -10,11 +10,11 @@
     <span class="o_s_hs"><strong>請求情報</strong></span>
     <div class='row'>
       <div class='col-xs-6'>
-        <table class="table table-bordered">	
+        <table class="table table-bordered">
 	      <tbody>
 			  <tr>
 				<th class="o_s_tf">注文日</th>
-				<td class="c_s_tw"><%= @order.created_at.strftime('%Y/%m/%d') %></td>			
+				<td class="c_s_tw"><%= @order.created_at.strftime('%Y/%m/%d') %></td>
 			  </tr>
 			  <tr>
 				<th class="o_s_tf"><br>配送先</th>
@@ -38,11 +38,11 @@
         </table>
       </div>
 	  <div class='col-xs-3'>
-        <table class="table table-bordered">	
+        <table class="table table-bordered">
 	      <tbody>
 			  <tr>
 				<th class="o_stf">商品合計</th>
-				<td class="c_s_tw"><%= @total_amount %></td>			
+				<td class="c_s_tw"><%= @total_amount %></td>
 			  </tr>
 			  <tr>
 				<th class="o_stf">配送料</th>
@@ -73,9 +73,9 @@
 				<tbody>
 					<tr>
 						<td><%= order_product.product.name %></td>
-						<td><%= order_product.unit_price %></td>
+						<td><%= ((order_product.unit_price * @tax).round(2)).ceil %></td>
 						<td><%= order_product.number %></td>
-						<td><%= order_product.unit_price * order_product.number %></td>
+						<td><%= ((order_product.unit_price * @tax).round(2)).ceil * order_product.number %></td>
 					</tr>
 					</tbody>
 			<% end %>

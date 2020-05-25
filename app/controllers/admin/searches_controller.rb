@@ -4,7 +4,4 @@ class Admin::SearchesController < ApplicationController
 		@orders = Order.where(customer_id: customer.id)
 	end
 
-	def show
-	end
-
 end

@@ -10,6 +10,8 @@ class Admin::CustomersController < ApplicationController
 	# 会員詳細画面
 	def show
 		@customer = Customer.find(params[:id])
+		#customer = Customer.find(params[:customer_id])
+		#@orders = Order.where(customer_id: customer.id)
 	end
 
 	# 会員編集画面
