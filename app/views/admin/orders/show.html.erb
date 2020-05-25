@@ -54,7 +54,7 @@
               <td><%= order.number %></td>
               <td><%= (((order.product.price * 1.1).round(2)).ceil) * order.number %> 円<br></td>
               <td>
-                <%= render 'admin/order_products/order_products', order_product: @order_product %>
+                <%= render 'admin/order_products/order_products', order_product: order %>
                </td>
              </tr>
             <% end %>
