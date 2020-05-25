@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
 	before_action :authenticate_customer!, except: [:index]
+	before_action :set_tax
 
 	def index
 		@products = Product.where(is_sale: true)
@@ -16,4 +17,9 @@ class ProductsController < ApplicationController
 		@get_cart_item = CartItem.find_by(customer_id: current_customer.id, product_id: params[:id])
 		@pull_num = [1, 2, 3, 4, 5, 10]
 	end
+
+	def set_tax
+		@tax = 1.1 # 税率10%
+	end
+
 end
