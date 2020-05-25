@@ -40,16 +40,7 @@ Rails.application.routes.draw do
     resources :order_products, only: [:update]
     resources :searches, only: [:index, :show] 
     resources :search, only: [:index]
-    
+    root 'homes#top' 
     get 'top' => 'homes#top'
-
-    end
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  namespace :admin do
-    devise_for :admins
-  root 'admins#top' #最初の画面をルートにて設定しています。
   end
-
-
 end
