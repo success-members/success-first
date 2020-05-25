@@ -1,5 +1,7 @@
 class Admin::OrderProductsController < ApplicationController
 
+	before_action :authenticate_admin!
+
 	def order_products
 		@order_product = OrderProduct.find(params[:id])
 	end
