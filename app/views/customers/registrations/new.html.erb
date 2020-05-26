@@ -41,8 +41,8 @@
         <div class='col-xs-2'>
           <span>郵便番号（ハイフンなし）</span>
         </div>
-        <div class='col-xs-3'>
-          <%= f.text_field :postcode, autofocus: true, class: "h_sign_f" %>
+        <div class='col-xs-4'>
+          <%= f.text_field :postcode, autofocus: true, class: "h_sign_f", id: "address_zipcode" %>   
         </div>
       </div>
       <div class='row'>
@@ -50,7 +50,7 @@
           <span>住所</span>
         </div>
         <div class='col-xs-4'>
-          <%= f.text_field :address, autofocus: true, class: "h_sign_f", size: 69%>
+          <%= f.text_field :address, autofocus: true, placeholder: '',  class: "h_sign_f", size: 69%>
         </div>
       </div>
       <div class='row'>
@@ -81,9 +81,13 @@
       <span class="h_sign_b">
         <%= f.submit "新規登録",class: "btn btn-success", id: "sb" %>
       </span>
+      <div class= "h_sign_n">
+      <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all,:name, :name, class: "h_sign_n"  %>
+      </div><!--画面では非表示にしているが、都道府県のコード番号を名前に変更する役割を果たしている-->
     <% end %>
   <br><br>
     <span class="h_gs">既に登録済みの方</span><br>
     <span class="h_sigin_log"><%= render "customers/shared/links" %></span>
   </div>
+
 </body>
