@@ -21,7 +21,7 @@ RSpec.describe "Admin::Products", type: :request do
 	    	# 	expect(page).to have_content('商品ID')
 	    	# end
 
-	    	it '商品名' do
+	    	it '商品名と表示される' do
 	    		visit admin_orders_path
 	    		expect(page).to have_content('商品名')
 	    	end
@@ -31,18 +31,18 @@ RSpec.describe "Admin::Products", type: :request do
 	    	# 	expect(page).to have_content('税抜価格')
 	    	# end
 
-	    	it 'ジャンル' do
+	    	it 'ジャンルと表示される' do
 	    		visit admin_orders_path
 	    		expect(page).to have_content('ジャンル')
 	    	end
 
-	    	it 'ステータス' do
+	    	it 'ステータスと表示される' do
 	    		visit admin_orders_path
 	    		expect(page).to have_content('ステータス')
 	    	end
 		end
 
-		context '商品新規登録画面' do
+		context '商品新規登録画面と表示される' do
 			login_admin
 
 			it '商品新規登録画面が正しく表示される' do
@@ -111,5 +111,4 @@ RSpec.describe "Admin::Products", type: :request do
 	    	# end
 		end
 	end
-
 end
