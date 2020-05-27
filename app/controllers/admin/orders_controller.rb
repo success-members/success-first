@@ -3,7 +3,11 @@ class Admin::OrdersController < ApplicationController
 	before_action :authenticate_admin!
 
 	def index
-		@orders = Order.all
+		if params[:id]
+			@orders = Order.where(customer_id: params[:id])
+		else
+			@orders = Order.all
+		end
 	end
 
 	def show
