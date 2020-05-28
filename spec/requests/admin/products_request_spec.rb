@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Admin::Products", type: :request do
 
-	describe 'admin/products_controller' do
+	describe 'admin/products' do
 		context '商品一覧画面' do
 			login_admin
 

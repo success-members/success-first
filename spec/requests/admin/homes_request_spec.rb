@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Admin::Homes", type: :request do
 
-	describe 'admin/homes_controller' do
+	describe 'admin/homes' do
 		context 'トップページ' do
 
 			it 'トップページが正しく表示される' do

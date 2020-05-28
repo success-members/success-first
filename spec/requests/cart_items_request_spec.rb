@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "CartItems", type: :request do
 
-	describe 'admin/cart_items_controller' do
+	describe 'admin/cart_items' do
 		context 'カート画面' do
 			login_customer
 
