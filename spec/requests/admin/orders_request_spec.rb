@@ -201,17 +201,15 @@ RSpec.describe "Admin::Orders", type: :request do
 				expect(page).to have_content @order.customer.first_name
 			end
 
-			it '購入者が表示される' do
+			it '支払方法が表示される' do
 				visit admin_order_path(@order)
-				expect(page).to have_content @order.customer.last_name
-				expect(page).to have_content @order.customer.first_name
+				expect(page).to have_content @order.payment_method
 			end
 
-			it '購入者が表示される' do
-				visit admin_order_path(@order)
-				expect(page).to have_content @order.customer.last_name
-				expect(page).to have_content @order.customer.first_name
-			end
+			# it '商品名が表示される' do
+			# 	visit admin_order_path(@order)
+			# 	expect(page).to have_content @order_product.product.name
+			# end
 
 			it '購入者が表示される' do
 				visit admin_order_path(@order)
