@@ -4,7 +4,7 @@ class Admin::CustomersController < ApplicationController
 
 	# 会員一覧画面
 	def index
-		@customers = Customer.all
+		@customers = Customer.page(params[:page]).reverse_order
 	end
 
 	# 会員詳細画面

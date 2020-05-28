@@ -73,3 +73,9 @@ gem 'bootstrap-sass', '~> 3.3.6'
 
 # jQuery
 gem 'jquery-rails'
+
+# kaminari
+gem 'kaminari','~> 1.1.1'
+gem 'kaminari-bootstrap', '~> 3.0.1'
+
+
