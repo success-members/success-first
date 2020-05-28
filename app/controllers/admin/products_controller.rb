@@ -19,7 +19,7 @@ class Admin::ProductsController < ApplicationController
 
 	# 商品一覧画面
 	def index
-		@products = Product.all
+		@products = Product.page(params[:page]).reverse_order
 	end
 
 	# 商品詳細画面

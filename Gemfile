@@ -80,3 +80,7 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
+
+# kaminari
+gem 'kaminari','~> 1.1.1'
+gem 'kaminari-bootstrap', '~> 3.0.1'
