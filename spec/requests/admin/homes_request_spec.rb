@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "Admin::Homes", type: :request do
 
-	describe 'admin/homes' do
-		context 'トップページ' do
+	describe 'トップページ' do
+		context '表示の確認' do
 
 			it 'トップページが正しく表示される' do
 				get admin_top_path

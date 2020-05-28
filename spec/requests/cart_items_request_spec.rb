@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "CartItems", type: :request do
 
-	describe 'admin/cart_items' do
-		context 'カート画面' do
+	describe 'カート画面' do
+		context '表示の確認' do
 			login_customer
 
 			it 'カート画面が正しく表示される' do

@@ -4,7 +4,7 @@ RSpec.describe "Admin::Genres", type: :request do
 	login_admin
 
 	describe 'ジャンル登録・一覧画面' do
-		context '項目の表示' do
+		context '表示の確認' do
 			it '会員一覧画面が正しく表示される' do
 				get new_admin_genre_path
 				expect(response.status).to eq 200
@@ -39,8 +39,10 @@ RSpec.describe "Admin::Genres", type: :request do
 	    		visit new_admin_genre_path
 	    		expect(page).to have_content '状態'
 	    	end
+	    end
 
-	    	it 'ジャンル編集フォームにジャンル名が表示される' do
+	    context 'フォームのテスト' do
+	    	it 'フォームにジャンル名が表示される' do
 	    		visit new_admin_genre_path
 	    		fill_in 'genre[name]', with: Faker::Lorem.characters(number:5)
 	    	end
@@ -61,7 +63,7 @@ RSpec.describe "Admin::Genres", type: :request do
 	    	end
 	    end
 
-	    context 'ジャンル・一覧の表示' do
+	    context 'ジャンル追加後の表示' do
 	    	before do
 	    		visit new_admin_genre_path
 	    		@genre = Genre.new(
@@ -89,7 +91,7 @@ RSpec.describe "Admin::Genres", type: :request do
 	end
 
 	describe 'ジャンル編集画面' do
-	    context '項目の表示' do
+	    context '表示の確認' do
 	    	before do
 	    		visit new_admin_genre_path
 	    		@genre = Genre.new(
@@ -136,11 +138,6 @@ RSpec.describe "Admin::Genres", type: :request do
 	    	end
 
 	    	it 'フォームにジャンル名が表示される' do
-	    		visit edit_admin_genre_path(@genre)
-	    		fill_in 'genre[name]', with: Faker::Lorem.characters(number:5)
-	    	end
-
-	    	it 'ジャンル編集フォームにジャンル名が表示される' do
 	    		visit edit_admin_genre_path(@genre)
 	    		fill_in 'genre[name]', with: Faker::Lorem.characters(number:5)
 	    	end
