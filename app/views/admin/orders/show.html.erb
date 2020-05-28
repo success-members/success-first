@@ -18,7 +18,8 @@
           </tr>
           <tr>
             <th>配送先</th>
-            <td><%= @order.customer.postcode %> <%= @order.address %></td>
+            <td><%= @order.postcode %> <%= @order.address %><br>
+              <%= @order.name %></td>
           </tr>
           <tr>
             <th>支払方法</th>
@@ -70,7 +71,7 @@
          <table class="a_o_table_price">
           <tr>
             <th class="col-xs-2">商品合計</th>
-            <td class="col-xs-2"><%= ((@total_amount * 1.1).round(2)).ceil %> 円</td>
+            <td class="col-xs-2"><%= @total_amount %> 円</td>
           </tr>
           <tr>
             <th class="col-xs-2">送料</th>
