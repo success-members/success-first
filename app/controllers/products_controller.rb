@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 	before_action :set_tax
 
 	def index
-		@products = Product.where(is_sale: true)
+		@products = Product.page(params[:page]).where(is_sale: true).reverse_order
 		@genres = Genre.where(is_valid: true)
 		if params[:id].present?
 			@search_genre = Genre.find(params[:id])

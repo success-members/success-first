@@ -4,9 +4,9 @@ class Admin::OrdersController < ApplicationController
 
 	def index
 		if params[:id]
-			@orders = Order.where(customer_id: params[:id])
+			@orders = Order.page(params[:page]).where(customer_id: params[:id]).reverse_order
 		else
-			@orders = Order.all
+			@orders = Order.page(params[:page]).reverse_order
 		end
 	end
 
