@@ -16,8 +16,6 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
-//= require jquery
-//= require bootstrap-sprockets
 $(document).ready(function () {
   $("#theTarget").skippr({
       // スライドショーの変化 ("fade" or "slide")
