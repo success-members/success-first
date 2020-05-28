@@ -8,6 +8,12 @@ class AddLastNameToCustomers < ActiveRecord::Migration[5.2]
     add_column :customers, :address, :string, null: false, default: ""
     add_column :customers, :phone_number, :string, null: false, default: ""
     add_column :customers, :is_deleted, :boolean, null: false, default: true
+
+    add_column :customers, :prefecture_code, :integer
+    add_column :customers, :address_city, :string
+    add_column :customers, :address_street, :string
+    add_column :customers, :address_building, :string
+
   end
   
 end

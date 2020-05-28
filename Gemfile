@@ -75,3 +75,5 @@ gem 'bootstrap-sass', '~> 3.3.6'
 
 # jQuery
 gem 'jquery-rails'
+
+gem 'jp_prefecture'
