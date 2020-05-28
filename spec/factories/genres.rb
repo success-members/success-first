@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :genre do
-    name { "ケーキ" }
+    name { Faker::Name.name }
 	is_valid { true }
   end
 end

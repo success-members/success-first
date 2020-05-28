@@ -1,18 +1,33 @@
 module AuthenticationMacros
 
 	def login_customer
-		let(:customer) { build(:customer) }
+		let(:customer) { create(:customer) }
 		before do
 			sign_in customer
 		end
 	end
 
 	def login_admin
-		let(:admin) { build(:admin) }
+		let(:admin) { create(:admin) }
 		before do
 			sign_in admin
 		end
 	end
+
+
+	# def login_customer
+	# 	let(:customer) { build(:customer) }
+	# 	before do
+	# 		sign_in customer
+	# 	end
+	# end
+
+	# def login_admin
+	# 	let(:admin) { build(:admin) }
+	# 	before do
+	# 		sign_in admin
+	# 	end
+	# end
 
 
   # def login_admin(admin)
