@@ -38,7 +38,7 @@ Rails.application.routes.draw do
     resources :products, only: [:new, :create, :index, :show, :edit, :update]
     resources :orders, only: [:index, :show, :update]
     resources :order_products, only: [:update]
-    resources :searches, only: [:index] 
+    resources :searches, only: [:index, :show] 
     resources :search, only: [:index]
     root 'homes#top' 
     get 'top' => 'homes#top'
