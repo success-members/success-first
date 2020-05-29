@@ -1,0 +1,33 @@
+<body>
+  <span class="h_gl">管理者ログイン</span>
+  <%= flash[:error] %>
+<br><!--改行による隙間明け-->
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class='row'>
+      <div class='col-xs-1'></div>
+      <div class='col-xs-2'>
+        <span>メールアドレス<span>
+      </div>
+      <div class='col-xs-2'>
+        <%= f.email_field  :email, autofocus: true, autocomplete: "email", size:60, class: "h_log_f" %>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='col-xs-1'></div>
+      <div class='col-xs-2'>
+      <span>パスワード </span>
+      </div>
+      <div class='col-xs-2'>
+        <%= f.password_field :password, autocomplete: "admin-password", size:60, class: "h_log_f" %>
+      </div>
+    </div>
+
+  <div class="h_log_b">
+    <%= f.submit "ログイン", class: "btn btn-primary" %>
+  </div>
+  <% end %>
+
+</body>
+
+

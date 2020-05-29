@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SuccessFirst</title>
+    <title>NaganoCake</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <% if request.path_info.include?("admin") %>
+    <%= render 'layouts/admin/header' %>
+  <% else %>
+    <%= render 'layouts/header' %>
+  <% end %>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%= yield %>
 </html>

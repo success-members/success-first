@@ -1,0 +1,37 @@
+// Place all the styles related to the shipping_addresses controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.s_g{
+ font-size: 150%;
+ background-color:#EEEEEE;
+ margin-left:50px;
+
+ }  /*配送先登録画面の背景色設定（グレー）*/
+
+.s_i{
+ margin-left:100px;
+ }  /*配送先一覧ページのbody全体（ヘッダー除く）*/
+
+.s_i_s{
+background-color:#EEEEEE;
+
+}  /*配送先登録,一覧ページの配送先一覧表の項目の背景色設定（グレー）*/
+
+ .s_field{
+ border-radius:5px;
+ }  /*配送先一覧ページの入力フォーム指定*/
+
+ .s_i_aw{
+ width:350px;
+ }  /*配送先一覧ページの配送先一覧の住所指定*/
+
+ .s_i_aa{
+ width:190px;
+ }  /*配送先一覧ページの配送先一覧の編集削除ボタンのある欄の指定*/
+
+ .s_e{
+ margin-left:100px;
+ }  /*配送先編集ページのbody全体（ヘッダー除く）*/
+

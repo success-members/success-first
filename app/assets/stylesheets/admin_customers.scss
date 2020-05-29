@@ -1,0 +1,57 @@
+// Place all the styles related to the admin_customers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/*indexの見出し設定*/
+.a_c_i_headline h3 {
+	font-size: 20px;
+	margin-top: 40px;
+	margin-bottom: 30px;
+	margin-left: 150px;
+	padding: 0 5px;
+	background-color: #eee;
+}
+
+/*見出し設定*/
+.a_c_headline {
+	font-size: 20px;
+	margin-top: 40px;
+	margin-bottom: 60px;
+	padding: 0 5px;
+	background-color: #eee;
+}
+
+/*表とボタンの間隔調節*/
+.a_c_table {
+	margin-bottom: 30px;
+}
+
+/*表の設定*/
+.a_c_table td {
+	padding-bottom: 20px;
+}
+
+/*表の配置設定*/
+.a_customer_all {
+	margin-left: 250px;
+}
+
+/*フォームの枠の設定*/
+.a_c_form_width {
+	width: 130px;
+	margin-right: 10px;
+}
+
+.a_c_address_form_width {
+	width: 500px;
+}
+
+.a_c_form_height {
+	height: 30px;
+}
+
+/*ラジオボタンの設定*/
+.a_c_blank_r {
+	margin-right: 10px;
+}

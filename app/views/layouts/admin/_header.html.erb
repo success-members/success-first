@@ -1,0 +1,49 @@
+<header>
+  <nav class="navbar navbar-default a_navbar">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample4">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+            <a class="navbar-brand" href="/admin/top"><h1 class="a_h_logo">ながのCAKE</h1></a>
+      </div>
+
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarEexample4">
+          <div class="row">
+            <ul class="nav navbar-nav navbar-right">
+              <!--if文でサインインとアウト時の表示を変更-->
+              <% if admin_signed_in? %>
+                <li><%= link_to '商品一覧', admin_products_path, type: 'button', class: 'btn btn-default navbar-btn a_h_btn' %></li>
+                <li><%= link_to '会員一覧', admin_customers_path, type: 'button', class: 'btn btn-default navbar-btn a_h_btn' %></li>
+                <li><%= link_to '注文履歴一覧', admin_orders_path, type: 'button', class: 'btn btn-default navbar-btn a_h_btn' %></li>
+                <li><%= link_to 'ジャンル一覧', new_admin_genre_path, type: 'button', class: 'btn btn-default navbar-btn a_h_btn' %></li>
+                <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, type: 'button', class: 'btn btn-default navbar-btn a_h_btn' %></li>
+              <% else %>
+                <li><%= link_to '商品一覧', admin_products_path, type: 'button', class: 'btn btn-default navbar-btn a_h_btn' %></li>
+                <li><%= link_to ' 新規登録', new_admin_registration_path, type: 'button', class: 'btn btn-default navbar-btn a_h_btn' %></li>
+                <li><%= link_to ' ログイン', new_admin_session_path, type: 'button', class: 'btn btn-default navbar-btn a_h_btn' %></li>
+              <% end %>
+            </ul>
+          </div>
+
+          <div class="row">
+            <ul class="nav navbar-nav navbar-right">
+              <% if admin_signed_in? %>
+                <%= form_tag(admin_search_index_path,:method => 'get') do %> 
+                  <%= text_field_tag :search %>
+                  <%= select_tag(:option, options_for_select([["商品名","1"],["顧客名","2"]]))%> 
+                  <%= select_tag(:choice, options_for_select([["完全一致検索", "1" ],["前方一致検索", "2" ],["後方一致検索", "3" ],["部分一致検索","4"]]))%>
+                  <%= submit_tag '🔎' %>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    </nav>
+</header>

@@ -1,0 +1,200 @@
+// Place all the styles related to the orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.o_g{
+font-size: 200%;
+background-color:#EEEEEE;
+margin-left:500px;
+} /*注文履歴一覧ページの見出し（グレー）*/
+
+.o_ia{
+background-color:#EEEEEE;
+} /*注文履歴一覧ページのテーブルの項目部分（グレー）*/
+
+.o_td{
+width:150px;
+}/*注文履歴一覧ページのテーブルの注文日（グレー）*/
+
+.o_ta{
+}/*注文履歴一覧ページのテーブルの配送先（グレー）*/
+
+.o_tn{
+width:200px;
+}/*注文履歴一覧ページのテーブルの注文商品（グレー）*/
+
+.o_tb{
+width:100px;
+}/*注文履歴一覧ページのテーブルの支払金額（グレー）*/
+
+.o_tt{
+width:150px;
+}/*注文履歴一覧ページのテーブルのステータス（グレー）*/
+
+.o_tz{
+width:150px;
+}/*注文履歴一覧ページのテーブルの注文詳細（グレー）*/
+
+.o_sh{
+font-size: 150%;
+background-color:#EEEEEE;
+margin-left:100px;
+}/*注文履歴詳細ページの見出し（注文履歴詳細）（グレー）*/
+
+.o_s_tf{
+background-color:#EEEEEE;
+width:100px;	
+}/*注文履歴詳細ページの注文情報テーブルの項目（グレー）*/
+
+.o_stf{
+background-color:#EEEEEE;	
+}/*注文履歴詳細ページの請求情報テーブルと注文内容テーブルの項目（グレー）*/
+
+.o_s_hf{
+font-size: 120%;	
+}/*注文履歴詳細ページの見出し（注文情報）*/
+
+.o_s_hs{
+margin-left:515px;
+font-size: 120%;	
+}/*注文履歴詳細ページの見出し（請求情報）*/
+
+.o_s_ht{
+font-size: 120%;	
+}/*注文履歴詳細ページの見出し（注文内容）*/
+
+/*注文完了ページのコメント配置 */
+.text_position {
+	margin: 200px;
+}
+
+
+// orders/confirm
+/* 注文情報確認ページの注文情報確認テーブルの見出し（グレー）*/
+.order_c_title {
+	margin-left: 100px;
+	margin-bottom: 10px;
+	font-size: 120%;
+	height: 20px;
+	background-color:#EEEEEE;
+}
+
+/* 注文情報確認ページの注文情報確認テーブルの項目部分（グレー）*/
+.order_c_t_title {
+	background-color:#EEEEEE;
+}
+
+/* 注文情報確認ページの注文情報確認テーブルの値部分（グレー）*/
+.order_c_t_value {
+	font-size: 110%;
+	font-weight: bold;
+}
+
+/* 注文情報確認ページの請求金額テーブルの項目部分（グレー）*/
+.billing_a_t_title {
+	width: 80px;
+	background-color:#EEEEEE;
+}
+
+/* 注文情報確認ページの請求金額テーブルの項目部分（グレー）*/
+.billing_a_t_value {
+	font-size: 110%;
+	width: 80px;
+	font-weight: bold;
+}
+
+/* 注文情報確認ページの支払方法の見出し */
+.payment_m_title {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+/* 注文情報確認ページの支払方法の値 */
+.payment_m_value {
+	font-size: 15px;
+}
+
+/* 注文情報確認ページのお届け先の見出し */
+.addressee_title {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+/* 注文情報確認ページのお届け先の値 */
+.addressee_value {
+	font-size: 15px;
+}
+
+/* 注文情報確認ページの2段目*/
+.second_block {
+	margin-top: 30px;
+}
+
+/* 注文情報確認ページの3段目*/
+.third_block {
+	margin-top: 30px;
+}
+
+/* 注文情報確認ページの4段目*/
+.forth_block {
+	margin-top: 30px;
+}
+
+
+// orders/new
+/* エラーメッセージのフォント */
+.error_msg {
+	color: red;
+}
+
+.address_error_msg {
+	color: red;
+}
+
+/* 注文情報入力ページの見出し（グレー） */
+.order_n_title {
+	margin-left: 100px;
+	margin-bottom: 10px;
+	font-size: 120%;
+	height: 20px;
+	background-color:#EEEEEE;
+}
+
+/* 注文情報入力ページの支払方法のドロップボタン配置 */
+.payment_m_drop {
+	margin-left: 30px;
+}
+
+/* 注文情報入力ページのお届け先の見出し */
+.to_addressee_title {
+	margin-top: 20px;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+/* 注文情報入力ページのお届け先のドロップボタン配置 */
+.address_s_title {
+	margin-left: 30px;
+}
+
+/* 注文情報入力ページのお届け先の値（住所）の設定 */
+.address_s_value {
+	margin-left: 50px;
+	font-size: 15px;
+}
+
+/* 注文情報入力ページのお届け先の「新しいお届け先」の値の配置（郵便番号） */
+.postcode_v {
+	margin-left: 10px;
+}
+
+/* 注文情報入力ページのお届け先の「新しいお届け先」の値の配置（住所） */
+.address_v {
+	margin-left: 137px;
+}
+
+/* 注文情報入力ページのお届け先の「新しいお届け先」の値の配置（宛名） */
+.name_v {
+	margin-left: 137px;
+}

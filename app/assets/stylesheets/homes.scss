@@ -1,0 +1,35 @@
+// Place all the styles related to the homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.product_n {
+	font-weight: bold;
+}
+
+.product_p {
+	font-weight: bold;
+}
+
+.explain {
+	font-size: 12px;
+}
+
+#theTarget{
+  height: 400px;
+  width: 100%;
+}
+.image1 {
+background-image: image-url("image1.jpg");
+}
+.image2 {
+background-image: image-url("image2.jpg");
+}
+.image3 {
+background-image: image-url("image3.jpg");
+}
+.image4 {
+background-image: image-url("image4.jpg");
+}
+.image5 {
+background-image: image-url("image5.jpg");
+}

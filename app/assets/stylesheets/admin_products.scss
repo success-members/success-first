@@ -1,0 +1,91 @@
+// Place all the styles related to the admin_products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*新規登録ページへのボタン*/
+.a_add_btn {
+	font-size: 40px;
+	margin-bottom: 10px;
+}
+
+/*indexの見出しの設定*/
+.a_p_i_headline h3 {
+	font-size: 20px;
+	margin-top: 40px;
+	margin-left: 100px;
+	padding: 0 5px;
+	background-color: #eee;
+}
+
+/*見出しの設定*/
+.a_p_headline {
+	font-size: 20px;
+	margin-top: 40px;
+	margin-bottom: 100px;
+	margin-left: 100px;
+	padding: 0 5px;
+	background-color: #eee;
+}
+
+/*showの詳細表示の文字の設定*/
+.a_p_show_font {
+	font-size: 20px;
+}
+
+/*ボタン位置の基準*/
+.a_p_btn_position {
+	position: relative;
+}
+
+/*ボタンの設定*/
+.btn-bottom {
+	position: absolute;
+	right: 30px;
+}
+
+/*表の設定*/
+.a_p_table td {
+	padding-bottom: 20px;
+	vertical-align: top;
+	word-break: break-all;
+}
+
+/*表の配置設定*/
+.a_products_all {
+	margin-left: 100px;
+}
+
+/*画像投稿ボタンの設定*/
+.a_p_img_btn {
+	margin-top: 10px;
+}
+
+/*商品説明文の枠の設定*/
+.a_p_row-5 {
+	height: calc( 1.3em * 5 );
+	line-height: 1.3;
+}
+
+/*フォームの枠の設定*/
+.a_p_form_width {
+	width: 200px;
+	margin-right: 5px;
+}
+
+.a_p_form_height {
+	height: 30px;
+}
+
+
+.a_p_table select {
+	width: 200px;
+	height: 30px;
+}
+
+
+
+
+
+
+
+

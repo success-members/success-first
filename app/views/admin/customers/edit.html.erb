@@ -1,0 +1,58 @@
+<div class="container">
+	<div class="row">
+		<h3 class="text-center col-xs-4 a_c_headline"><%= @customer.last_name %> <%= @customer.first_name %>さんの会員情報編集</h3>
+	</div>
+
+	<div class="row">
+		<%= form_with model: @customer, url: admin_customer_path(@customer.id), local: true do |f| %>
+			<table class="a_c_table">
+				<tr>
+					<td class="col-xs-2">会員ID</td>
+					<td><%= @customer.id %></td>
+				</tr>
+				<tr>
+					<td class="col-xs-2">氏名</td>
+					<td><%= f.text_field :last_name, class: 'a_c_form_height a_c_form_width' %> <%= f.text_field :first_name, class: 'a_c_form_height a_c_form_width' %></td>
+				</tr>
+
+				<tr>
+					<td class="col-xs-2">フリガナ</td>
+					<td><%= f.text_field :last_name_kana, class: 'a_c_form_height a_c_form_width' %> <%= f.text_field :first_name_kana, class: 'a_c_form_height a_c_form_width' %></td>
+				</tr>
+
+				<tr>
+					<td class="col-xs-2">郵便番号</td>
+					<td><%= f.text_field :postcode, class: 'a_c_form_height a_c_form_width' %></td>
+				</tr>
+
+				<tr>
+					<td class="col-xs-2">住所</td>
+					<td><%= f.text_field :address, class: 'a_c_form_height a_c_address_form_width' %></td>
+				</tr>
+
+				<tr>
+					<td class="col-xs-2">電話番号</td>
+					<td><%= f.text_field :phone_number, class: 'a_c_form_height' %></td>
+				</tr>
+
+				<tr>
+					<td class="col-xs-2">メールアドレス</td>
+					<td><%= f.text_field :email, class: 'a_c_form_height' %></td>
+				</tr>
+
+				<tr>
+					<td class="col-xs-2">会員ステータス</td>
+					<td>
+						<%= f.radio_button :is_deleted, true %>
+						<%= f.label :is_deleted, '有効', value: true, class: 'a_c_blank_r' %>
+
+						<%= f.radio_button :is_deleted, false %>
+						<%= f.label :is_deleted, '退会済み', value: false %>
+					</td>
+				</tr>
+			</table>
+
+			<%= f.submit '変更を保存する', class: 'btn btn-primary' %>
+		<% end %>
+	</div>
+</div>

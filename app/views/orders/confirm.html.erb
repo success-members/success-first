@@ -1,0 +1,102 @@
+<div class="container">
+
+	<!-- 注文情報確認テーブル -->
+	<div class="row">
+		<div class="col-xs-2 order_c_title text-center">
+			<p>注文情報確認</p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-9">
+			<table class="table table-bordered">
+				<thead>
+					<tr class="order_c_t_title">
+						<th class="col-xs-4">商品名</th>
+						<th class="col-xs-2">単価(税込)</th>
+						<th class="col-xs-2">数量</th>
+						<th class="col-xs-2">小計</th>
+					</tr>
+				</thead>
+
+				<% @cart_items.each do |cart_item| %>
+					<% @total_amount += ((cart_item.product.price * @tax).round(2)).ceil * cart_item.number %>
+					<tbody>
+						<tr  class="order_c_t_value">
+							<td>
+								<%= attachment_image_tag cart_item.product, :image, fallback: "no_image.jpg", size: "40x40" %>
+								<%= cart_item.product.name %>
+							</td>
+							<td><%= ((cart_item.product.price * @tax).round(2)).ceil %></td>
+							<td><%= cart_item.number %></td>
+							<td><%= ((cart_item.product.price * @tax).round(2)).ceil * cart_item.number %></td>
+						</tr>
+					</tbody>
+				<% end %>
+			</table>
+		</div>
+
+		<div class="col-xs-3">
+			<table class="table table-bordered">
+				<tr>
+					<th class="billing_a_t_title">送料</th>
+					<td class="billing_a_t_value"><%= @POSTAGE %></td>
+				</tr>
+				<tr>
+					<th class="billing_a_t_title">商品合計</th>
+					<td class="billing_a_t_value"><%= @total_amount %></td>
+				</tr>
+				<tr>
+					<th class="billing_a_t_title">請求金額</th>
+					<td class="billing_a_t_value"><%= billing = @POSTAGE + @total_amount %></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-2 second_block">
+			<div class="payment_m_title">支払方法</div>
+		</div>
+		<div class="col-xs-10 pull-left second_block">
+			<div class="payment_m_value">
+				<p><%= @order.payment_method %></p>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-2 third_block">
+			<div class="addressee_title">お届け先</div>
+		</div>
+		<div class="col-xs-10 pull-left third_block">
+			<div class="addressee_value">
+				<p>
+					<%= @postcode %>
+					<%= @address %>
+				</p>
+				<p>
+					<%= @name %>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12 forth_block">
+			<div class="text-center">
+				<%= form_for(@order) do |f| %>
+					<%= hidden_field_tag :addressee, @receive_addressee %>
+					<%= f.hidden_field :payment_method, value: @order.payment_method %>
+					<%= f.hidden_field :postage, value: @POSTAGE %>
+					<%= f.hidden_field :billing, value: billing %>
+					<%= f.hidden_field :postcode, value: @postcode %>
+					<%= f.hidden_field :address, value: @address %>
+					<%= f.hidden_field :name, value: @name %>
+
+					<%= f.submit '購入を確定する', class: "btn btn-success btn-lg" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
