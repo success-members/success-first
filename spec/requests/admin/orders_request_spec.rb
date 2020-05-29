@@ -211,41 +211,35 @@ RSpec.describe "Admin::Orders", type: :request do
 			# 	expect(page).to have_content @order_product.product.name
 			# end
 
-			it '購入者が表示される' do
+			# it '単価	が表示される' do
+			# 	visit admin_order_path(@order)
+			# 	expect(page).to have_content ((@order_product.product.price * 1.1).round(2)).ceil
+			# end
+
+			# it '数量が表示される' do
+			# 	visit admin_order_path(@order)
+			# 	expect(page).to have_content @order_product.number
+			# end
+
+			# it '小計が表示される' do
+			# 	visit admin_order_path(@order)
+			# 	expect(page).to have_content (((@order_product.product.price * 1.1).round(2)).ceil) * order_product.number
+			# end
+
+			it '商品合計が表示される' do
 				visit admin_order_path(@order)
-				expect(page).to have_content @order.customer.last_name
-				expect(page).to have_content @order.customer.first_name
+				expect(page).to have_content @total_amount
 			end
 
-			it '購入者が表示される' do
+			it '送料が表示される' do
 				visit admin_order_path(@order)
-				expect(page).to have_content @order.customer.last_name
-				expect(page).to have_content @order.customer.first_name
+				expect(page).to have_content @order.postage
 			end
 
-			it '購入者が表示される' do
-				visit admin_order_path(@order)
-				expect(page).to have_content @order.customer.last_name
-				expect(page).to have_content @order.customer.first_name
-			end
-
-			it '購入者が表示される' do
-				visit admin_order_path(@order)
-				expect(page).to have_content @order.customer.last_name
-				expect(page).to have_content @order.customer.first_name
-			end
-
-			it '購入者が表示される' do
-				visit admin_order_path(@order)
-				expect(page).to have_content @order.customer.last_name
-				expect(page).to have_content @order.customer.first_name
-			end
-
-			it '購入者が表示される' do
-				visit admin_order_path(@order)
-				expect(page).to have_content @order.customer.last_name
-				expect(page).to have_content @order.customer.first_name
-			end
+			# it '請求金額合計が表示される' do
+			# 	visit admin_order_path(@order)
+			# 	expect(page).to have_content ((@total_amount * 1.1).round(2)).ceil + @order.postage
+			# end
 		end
 	end
 end

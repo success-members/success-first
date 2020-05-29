@@ -137,7 +137,7 @@ RSpec.describe "Admin::Genres", type: :request do
 				@genre.save
 	    	end
 
-	    	it 'フォームにジャンル名が表示される' do
+	    	it 'ジャンル名の編集' do
 	    		visit edit_admin_genre_path(@genre)
 	    		fill_in 'genre[name]', with: Faker::Lorem.characters(number:5)
 	    	end
