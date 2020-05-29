@@ -79,7 +79,7 @@
           </tr>
           <tr>
             <th class="col-xs-2">請求金額合計</th>
-            <td class="col-xs-2"><%= ((@total_amount * 1.1).round(2)).ceil + @order.postage %> 円</td>
+            <td class="col-xs-2"><%= @order.billing %> 円</td>
           </tr>
          </table>
        </div>
