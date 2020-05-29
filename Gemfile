@@ -82,5 +82,5 @@ group :production do
 end
 
 # kaminari
-gem 'kaminari','~> 1.1.1'
+gem 'kaminari','~> 1.2.1'
 gem 'kaminari-bootstrap', '~> 3.0.1'
