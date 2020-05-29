@@ -6,7 +6,7 @@
 	<div class="row">
 		<div class="col-xs-4 text-center">
 			<div class="detail_product">
-				<%= attachment_image_tag(@product, :image, :fill, 250, 170, fallback: 'no_image.jpg', size: '250x170') %>
+				<%= attachment_image_tag(@product, :image, fallback: 'no_image.jpg', size: '250x170') %>
 			</div>
 		</div>
 
