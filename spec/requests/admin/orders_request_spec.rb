@@ -181,6 +181,8 @@ RSpec.describe "Admin::Orders", type: :request do
 					)
 				@order.customer_id = 1
 		 		@order.save
+
+		 		@total_amount = @order.billing - @order.postage
 			end
 
 			it '購入者が表示される' do
@@ -236,10 +238,10 @@ RSpec.describe "Admin::Orders", type: :request do
 				expect(page).to have_content @order.postage
 			end
 
-			# it '請求金額合計が表示される' do
-			# 	visit admin_order_path(@order)
-			# 	expect(page).to have_content ((@total_amount * 1.1).round(2)).ceil + @order.postage
-			# end
+			it '請求金額合計が表示される' do
+				visit admin_order_path(@order)
+				expect(page).to have_content @order.billing
+			end
 		end
 	end
 end

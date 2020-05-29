@@ -13,22 +13,22 @@ RSpec.describe "Products", type: :request do
 
 			it 'ジャンル検索と表示される' do
 				visit products_path
-	    		expect(page).to have_content('ジャンル検索')
+	    		expect(page).to have_content 'ジャンル検索'
 	    	end
 
 	    	it '商品一覧と表示される' do
 	    		visit products_path
-	    		expect(page).to have_content('商品一覧')
+	    		expect(page).to have_content '商品一覧'
 	    	end
 
 	    	it '全と表示される' do
 	    		visit products_path
-	    		expect(page).to have_content('全')
+	    		expect(page).to have_content '全'
 	    	end
 
 	    	it '件と表示される' do
 	    		visit products_path
-	    		expect(page).to have_content('件')
+	    		expect(page).to have_content '件'
 	    	end
 		end
 	end
