@@ -13,13 +13,13 @@ class Admin::ProductsController < ApplicationController
 			redirect_to admin_product_path(@product)
 		else
 			@products = Product.all
-			render :index
+			render :new
 		end
 	end
 
 	# 商品一覧画面
 	def index
-		@products = Product.all
+		@products = Product.page(params[:page]).reverse_order
 	end
 
 	# 商品詳細画面

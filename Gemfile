@@ -40,6 +40,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -75,5 +77,9 @@ gem 'bootstrap-sass', '~> 3.3.6'
 
 # jQuery
 gem 'jquery-rails'
+
+# kaminari
+gem 'kaminari','~> 1.1.1'
+gem 'kaminari-bootstrap', '~> 3.0.1'
 
 gem 'jp_prefecture'

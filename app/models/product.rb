@@ -4,7 +4,7 @@ class Product < ApplicationRecord
 	has_many :customers, through: :cart_items
 	has_many :order_products
 	has_many :orders, through: :order_products
-	belongs_to :genre
+	# belongs_to :genre
 	attachment :image
 
 
