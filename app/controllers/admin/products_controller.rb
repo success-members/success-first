@@ -13,7 +13,7 @@ class Admin::ProductsController < ApplicationController
 			redirect_to admin_product_path(@product)
 		else
 			@products = Product.all
-			render :index
+			render :new
 		end
 	end
 
