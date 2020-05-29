@@ -9,8 +9,14 @@
 .product_p {
 	font-weight: bold;
 }
-#container{
-  height: 500px;
+
+.explain {
+	font-size: 12px;
+}
+
+#theTarget{
+  height: 400px;
+  width: 100%;
 }
 .image1 {
 background-image: image-url("image1.jpg");
