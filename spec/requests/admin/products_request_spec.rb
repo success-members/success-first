@@ -145,10 +145,10 @@ RSpec.describe "Admin::Products", type: :request do
 	    		select '売切れ'
 	    	end
 
-	    	# it '「新規登録」をクリックすることができる' do
-	    	# 	visit new_admin_product_path
-	    	# 	click_on '新規登録'
-	    	# end
+	    	it '「新規登録」をクリックすることができる' do
+	    		visit new_admin_product_path
+	    		click_on '新規登録'
+	    	end
 		end
 	end
 

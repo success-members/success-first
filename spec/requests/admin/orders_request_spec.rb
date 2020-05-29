@@ -210,22 +210,22 @@ RSpec.describe "Admin::Orders", type: :request do
 
 			# it '商品名が表示される' do
 			# 	visit admin_order_path(@order)
-			# 	expect(page).to have_content @order_product.product.name
+			# 	expect(page).to have_content @order.product.name
 			# end
 
 			# it '単価	が表示される' do
 			# 	visit admin_order_path(@order)
-			# 	expect(page).to have_content ((@order_product.product.price * 1.1).round(2)).ceil
+			# 	expect(page).to have_content ((@order.product.price * 1.1).round(2)).ceil
 			# end
 
 			# it '数量が表示される' do
 			# 	visit admin_order_path(@order)
-			# 	expect(page).to have_content @order_product.number
+			# 	expect(page).to have_content @order.number
 			# end
 
 			# it '小計が表示される' do
 			# 	visit admin_order_path(@order)
-			# 	expect(page).to have_content (((@order_product.product.price * 1.1).round(2)).ceil) * order_product.number
+			# 	expect(page).to have_content (((@order.product.price * 1.1).round(2)).ceil) * order_product.number
 			# end
 
 			it '商品合計が表示される' do
